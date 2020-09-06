@@ -6,7 +6,7 @@
 
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/HigorSnt/adopt.me?style=flat-square">
-  <img alt="License" src="https://img.shields.io/github/license/HigorSnt/adopt.me?style=flat-square"> 
+  <img alt="Github" src="https://img.shields.io/github/license/HigorSnt/adopt.me?style=flat-square"> 
 </p>
 <p align="center">
   <a href="#bookmark-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
