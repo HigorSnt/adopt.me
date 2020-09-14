@@ -1,7 +1,7 @@
 <h1 align="center">
     <img alt="Proffy" src=".github/adopte.me.png" height="80px" />
     <br>🐾 Projeto de Desenvolvimento Web 2020.3<br>
-    <img src="http://www.dsc.ufcg.edu.br/~sacc/img/logo-topo2.png" width="200px"/>
+    <img src=".github/cc-ufcg.png" width="200px"/>
 </h1>
 
 <p align="center">
