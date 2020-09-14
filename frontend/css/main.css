@@ -13,6 +13,22 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #4f4f4f;
+  background-image: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
 a {
   text-decoration: none;
   color: white;
@@ -24,12 +40,14 @@ i {
 
 .container {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 header {
-  margin-top: 20px;
+  margin: 1% auto 2.5% auto;
+  width: 100%;
+  max-width: 1000px;
 }
 
 header nav {
@@ -81,79 +99,183 @@ header ul li:first-child a:hover {
   color: #9370DB;
 }
 
-.container main {
-  padding-top: 4.5em;
+main {
+  width: 100%;
+  margin-left: 3%;
 }
 
-.animal-info {
+.container {
   display: flex;
+  justify-content: space-between;
 }
 
-.animal-info .animal-info-img img {
-  width: 40em;
-  border-radius: 1em;
+aside {
+  width: 100%;
+}
+
+form #animal .animal-select {
+  padding: 1em;
+  border: 2px solid #7B68EE;
+  margin-bottom: 1em;
+}
+
+form label {
+  display: inline-block;
+  margin-bottom: 0.5em;
+}
+
+.options {
+  background-color: #4f4f4f;
+  color: ghostwhite;
+  height: 1.8em;
+  padding: 0.8em;
+  cursor: pointer;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animal-options .options {
+  margin-bottom: 0.8em;
+}
+
+.options p {
+  padding: 0.5em;
+}
+
+.location-select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 2.5em;
+  line-height: 3;
+  background: #ccc;
+  overflow: hidden;
+  border-radius: 0.25em;
+  margin: 0.3em 0 0.8em 0;
+}
+
+select {
+  font-family: "Roboto", sans-serif !important;
+  flex: 1;
+  padding: 0 0.5em;
+  color: ghostwhite;
+  cursor: pointer;
+}
+
+.location-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #4f4f4f;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+}
+
+.location-select:hover::after {
+  color: #7B68EE;
+}
+
+input[type=range] {
+  width: 100%;
+  margin: 7.3px 0;
+  background-color: #4f4f4f;
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  border-radius: 3px;
+  width: 100%;
+  height: 11.4px;
+  cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  margin-top: -7.5px;
+  width: 26px;
+  height: 26px;
+  background: #7b68ee;
+  border: 1px solid #00001e;
+  border-radius: 15px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+
+.card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
+  background-color: ghostwhite;
+  margin: 2.5%;
+  min-width: 850px;
+  border-radius: 1em;
+  color: 	#363636;
+  font-size: 20px;
 
-.animal-desc {
-  padding: 20px;
-}
-
-.animal-desc h2 {
-  font-size: 2.5em;
-  padding-bottom: 20px;
-}
-
-.animal-desc p {
-  font-size: 1.2em;
-  padding-bottom: 20px;
-  letter-spacing: 0.5px;
-  text-align: start;
-}
-
-.animal-desc .details div:nth-child(n) {
-  padding-bottom: 10px;
-}
-
-.details i {
-  padding-right: 10px;
-}
-
-.details {
-  font-size: 16px;
-}
-
-.contact-area {
-  padding-top: 10px;
   display: flex;
   align-items: center;
 }
 
-.contact-area a {
-  width: 10em;
-  height: 3.5em;
-  background: #008000;
-  color: white;
-  border: 0;
+.card:last-child {
+  margin-bottom: 4em;
+}
+
+.card:hover {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+  width: 20em;
+}
+
+.card .card-details {
+  margin-left: 7%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card-details h2 {
+  margin-bottom: 0.8em;
+}
+
+.card-details .item {
+  margin-bottom: 0.2em;
+}
+
+.card-details span {
+  margin: 0 0.5em;
+}
+
+.card-details .adote-button {
+  width: 5em;
+  height: 2.5em;
+  margin-top: 1em;
+  background-color: #4f4f4f;
   border-radius: 1em;
   cursor: pointer;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-evenly;
-  transition: 0.5s;
-  text-decoration: none;
+  align-self: flex-end;
 }
 
-.contact-area a:hover {
-  background: #006400;
+.card-details .adote-button:hover {
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
 }
 
-.contact-area i {
-  font-size: 28px;
-}
-
-.contact-area span {
-  padding-left: 10px;
+.adote-button a {
+  color: ghostwhite;
 }

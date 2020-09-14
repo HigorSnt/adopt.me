@@ -1,0 +1,76 @@
+.container main {
+  padding-top: 4.5em;
+}
+
+.animal-info {
+  display: flex;
+}
+
+.animal-info .animal-info-img img {
+  width: 40em;
+  border-radius: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.animal-desc {
+  padding: 20px;
+}
+
+.animal-desc h2 {
+  font-size: 2.5em;
+  padding-bottom: 20px;
+}
+
+.animal-desc p {
+  font-size: 1.2em;
+  padding-bottom: 20px;
+  letter-spacing: 0.5px;
+  text-align: start;
+}
+
+.animal-desc .details div:nth-child(n) {
+  padding-bottom: 10px;
+}
+
+.details i {
+  padding-right: 10px;
+}
+
+.details {
+  font-size: 16px;
+}
+
+.contact-area {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-area a {
+  width: 10em;
+  height: 3.5em;
+  background: #008000;
+  color: white;
+  border: 0;
+  border-radius: 1em;
+  cursor: pointer;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+.contact-area a:hover {
+  background: #006400;
+}
+
+.contact-area i {
+  font-size: 28px;
+}
+
+.contact-area span {
+  padding-left: 10px;
+}

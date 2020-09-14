@@ -11,75 +11,318 @@
 </head>
 
 <body>
-  <div class="container">
-    <header>
-      <nav>
+  <header>
+    <nav>
+      <div>
+        <img src="assets/adopte.me.svg" alt="adopte.me">
+      </div>
+      <div class="menu">
         <div>
-          <img src="assets/adopte.me.svg" alt="adopte.me">
+          <ul>
+            <li>
+              <a href="#"> <i class="fas fa-heart"></i> doe</a>
+            </li>
+            <li>
+              <a href="#">home</a>
+            </li>
+            <li>
+              <a href="#">sobre</a>
+            </li>
+            <li>
+              <a href="#">fale conosco</a>
+            </li>
+            <li>
+              <a href="#">login</a>
+            </li>
+          </ul>
         </div>
-        <div class="menu">
-          <div>
-            <ul>
-              <li>
-                <a href="#"> <i class="fas fa-heart"></i> doe</a>
-              </li>
-              <li>
-                <a href="#">home</a>
-              </li>
-              <li>
-                <a href="#">sobre</a>
-              </li>
-              <li>
-                <a href="#">fale conosco</a>
-              </li>
-              <li>
-                <a href="#">login</a>
-              </li>
-            </ul>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <aside>
+      <form>
+        <label for="animal">buscar por...</label>
+        <div id="animal">
+          <div class="animal-select">
+            <div class="options">
+              <p>Cachorros</p>
+              <i class="fa fa-1x fa-times"></i>
+            </div>
+          </div>
+          <div class="animal-options">
+            <div class="options">
+              <p>Gatos</p>
+            </div>
+            <div class="options">
+              <p>Pássaros</p>
+            </div>
+            <div class="options">
+              <p>Cobras</p>
+            </div>
+            <div class="options">
+              <p>Hamsters</p>
+            </div>
           </div>
         </div>
-      </nav>
-    </header>
+
+        <label for="location">estado</label>
+        <div class="location-select">
+          <select id="location" name="estado">
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+          </select>
+        </div>
+
+        <label for="age">idade</label>
+        <div id="age">
+          <input class="age-range blue" type="range" id="age-range" min="0" max="50" value="0">
+        </div>
+      </form>
+    </aside>
 
     <main>
-      <div class="animal-info">
-        <div class="animal-info-img">
-          <img src="assets/dog.png" alt="me adote">
-        </div>
-        <div class="animal-desc">
+      <div class="card">
+        <img src="assets/dog.png" alt="tobby">
+        <div class="card-details">
           <h2>Tobby</h2>
-          <p>
-            Tobby é um cachorrinho que foi encontrado abandonado na rua e chegou até a gente.
-            <br>
-            Demos alimentação, abrigo e carinho, mas é hora dele encontrar uma nova casa.
-          </p>
-          <div class="details">
-            <div>
-              <i class="fas fa-paw"></i> Tobby
-            </div>
-            <div>
-              <i class="fas fa-birthday-cake"></i> 5 meses
-            </div>
-            <div>
-              <i class="fas fa-clinic-medical"></i> Não precisa de cuidados especiais
-            </div>
-            <div>
-              <i class="fas fa-info"></i> Instituição
-            </div>
-            <div>
-              <i class="fas fa-map-marker-alt"></i> Endereço
-            </div>
-            <div>
-              <i class="fas fa-at"></i> email@ong.com
-            </div>
+          <div class="item">
+            <i class="fas fa-1x fa-birthday-cake"></i>
+            <span>5 meses</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-clinic-medical"></i>
+            <span>Não precisa de cuidados especiais</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-info"></i>
+            <span>Instituição</span>
+          </div>
+
+          <div class="adote-button">
+            <a href="item.html">adotar</a>
           </div>
         </div>
       </div>
-      <div class="contact-area">
-        <a target="_blank" href="https://wa.me/00000000000" type="button">
-          <i class="fab fa-whatsapp"></i> Falar conosco
-        </a>
-        <span>ou se preferir faça-nos uma visita!</span>
+      <div class="card">
+        <img src="assets/dog.png" alt="tobby">
+        <div class="card-details">
+          <h2>Tobby</h2>
+          <div class="item">
+            <i class="fas fa-1x fa-birthday-cake"></i>
+            <span>5 meses</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-clinic-medical"></i>
+            <span>Não precisa de cuidados especiais</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-info"></i>
+            <span>Instituição</span>
+          </div>
+
+          <div class="adote-button">
+            <a href="item.html">adotar</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/dog.png" alt="tobby">
+        <div class="card-details">
+          <h2>Tobby</h2>
+          <div class="item">
+            <i class="fas fa-1x fa-birthday-cake"></i>
+            <span>5 meses</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-clinic-medical"></i>
+            <span>Não precisa de cuidados especiais</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-info"></i>
+            <span>Instituição</span>
+          </div>
+
+          <div class="adote-button">
+            <a href="item.html">adotar</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/dog.png" alt="tobby">
+        <div class="card-details">
+          <h2>Tobby</h2>
+          <div class="item">
+            <i class="fas fa-1x fa-birthday-cake"></i>
+            <span>5 meses</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-clinic-medical"></i>
+            <span>Não precisa de cuidados especiais</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-info"></i>
+            <span>Instituição</span>
+          </div>
+
+          <div class="adote-button">
+            <a href="item.html">adotar</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/dog.png" alt="tobby">
+        <div class="card-details">
+          <h2>Tobby</h2>
+          <div class="item">
+            <i class="fas fa-1x fa-birthday-cake"></i>
+            <span>5 meses</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-clinic-medical"></i>
+            <span>Não precisa de cuidados especiais</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-info"></i>
+            <span>Instituição</span>
+          </div>
+
+          <div class="adote-button">
+            <a href="item.html">adotar</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/dog.png" alt="tobby">
+        <div class="card-details">
+          <h2>Tobby</h2>
+          <div class="item">
+            <i class="fas fa-1x fa-birthday-cake"></i>
+            <span>5 meses</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-clinic-medical"></i>
+            <span>Não precisa de cuidados especiais</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-info"></i>
+            <span>Instituição</span>
+          </div>
+
+          <div class="adote-button">
+            <a href="item.html">adotar</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/dog.png" alt="tobby">
+        <div class="card-details">
+          <h2>Tobby</h2>
+          <div class="item">
+            <i class="fas fa-1x fa-birthday-cake"></i>
+            <span>5 meses</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-clinic-medical"></i>
+            <span>Não precisa de cuidados especiais</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-info"></i>
+            <span>Instituição</span>
+          </div>
+
+          <div class="adote-button">
+            <a href="item.html">adotar</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/dog.png" alt="tobby">
+        <div class="card-details">
+          <h2>Tobby</h2>
+          <div class="item">
+            <i class="fas fa-1x fa-birthday-cake"></i>
+            <span>5 meses</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-clinic-medical"></i>
+            <span>Não precisa de cuidados especiais</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-info"></i>
+            <span>Instituição</span>
+          </div>
+
+          <div class="adote-button">
+            <a href="item.html">adotar</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="assets/dog.png" alt="tobby">
+        <div class="card-details">
+          <h2>Tobby</h2>
+          <div class="item">
+            <i class="fas fa-1x fa-birthday-cake"></i>
+            <span>5 meses</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-clinic-medical"></i>
+            <span>Não precisa de cuidados especiais</span>
+          </div>
+
+          <div class="item">
+            <i class="fas fa-1x fa-info"></i>
+            <span>Instituição</span>
+          </div>
+
+          <div class="adote-button">
+            <a href="item.html">adotar</a>
+          </div>
+        </div>
       </div>
     </main>
   </div>
