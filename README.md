@@ -8,7 +8,7 @@
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/HigorSnt/adopt.me?style=flat-square">
   <img alt="GitHub" src="https://img.shields.io/github/license/HigorSnt/adopt.me?style=flat-square">
   </br>
-  <a href="https://insomnia.rest/run/?label=adopt.me&uri=https%3A%2F%2Fraw.githubusercontent.com%2FHigorSnt%adopt.me%2Fmaster%2F.github%2FInsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+  <a href="https://insomnia.rest/run/?label=adopt.me&uri=https%3A%2F%2Fraw.githubusercontent.com%2FHigorSnt%2Fadopt.me%2Fmaster%2F.github%2FInsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 <p align="center">
   <a href="#bookmark-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
