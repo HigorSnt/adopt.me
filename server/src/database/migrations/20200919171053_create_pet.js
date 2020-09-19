@@ -11,8 +11,15 @@ exports.up = function (knex) {
     table.boolean('castrated').defaultTo(false);
     table.boolean('dewormed').defaultTo(false);
 
+    table
+      .integer('specie_id')
+      .notNullable()
+      .references('id')
+      .inTable('species');
+
     // ? Seria interessante anexar os dados de vacinação?
     // ? Caso sim, seria mais melhor pensar como uma entidade? Provavelmente.
+
     // TODO transformar em chave estrangeira com a tabela referente às instituições.
     table.string('ong').notNullable();
   });

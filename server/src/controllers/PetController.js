@@ -12,6 +12,7 @@ module.exports = {
       specialCares: special_cares,
       castrated,
       dewormed,
+      specie: specie_id,
       ong,
     } = req.body;
 
@@ -25,6 +26,7 @@ module.exports = {
       special_cares,
       castrated,
       dewormed,
+      specie_id,
       ong,
     };
 
