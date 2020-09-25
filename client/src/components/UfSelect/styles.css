@@ -1,0 +1,38 @@
+select {
+  font-family: 'Roboto', sans-serif !important;
+  flex: 1;
+  padding: 0 0.5rem;
+  font-size: 1.6rem;
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.location-select {
+  position: relative;
+  display: flex;
+  height: 3.8rem;
+  line-height: 1.7;
+  background: var(--color-gray);
+  overflow: hidden;
+  border-radius: 0.25rem;
+  margin: 0.3rem 0 0.8rem 0;
+}
+
+.location-select::after {
+  content: '\1F893';
+  font-size: 36px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1rem;
+  background: var(--color-light-gray);
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+}
+
+.location-select:hover::after {
+  color: var(--color-purple);
+}

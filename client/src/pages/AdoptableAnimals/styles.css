@@ -1,0 +1,22 @@
+main {
+  width: 100%;
+  margin-left: 2.5rem;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+aside {
+  width: 100%;
+}
+
+form label {
+  display: inline-block;
+  margin: 1rem 0 0.5rem 0;
+}
+
+#age {
+  margin-top: 0.8rem;
+}

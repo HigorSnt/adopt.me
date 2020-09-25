@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Scrollbars from 'react-custom-scrollbars';
+
+import './assets/styles/global.css';
+
+import AdoptableAnimals from './pages/AdoptableAnimals';
 
 function App() {
+  function renderThumb({ style, ...props }) {
+    const thumbStyle = {
+      backgroundColor: 'var(--color-purple)',
+      borderRadius: 10,
+    };
+    return <div style={{ ...style, ...thumbStyle }} {...props} />;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Scrollbars renderThumbVertical={renderThumb}>
+      <AdoptableAnimals />
+    </Scrollbars>
   );
 }
 
