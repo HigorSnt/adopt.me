@@ -4,7 +4,7 @@ import { FaBirthdayCake, FaClinicMedical, FaInfoCircle } from 'react-icons/fa';
 import './styles.css';
 import dog from '../../assets/images/dog.png';
 
-function ListItem() {
+function ListItem({ pet }) {
   return (
     <div className="card">
       <img src={dog} alt="tobby" />
@@ -23,10 +23,6 @@ function ListItem() {
         <div className="item">
           <FaInfoCircle />
           <span>Instituição</span>
-        </div>
-
-        <div className="adote-button">
-          <a href="item.html">adotar</a>
         </div>
       </div>
     </div>

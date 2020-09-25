@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles.css';
 
-function UfSelect() {
+function UfSelect({ uf, setUf }) {
   const ufs = [
     { id: 12, name: 'Acre', acronym: 'AC' },
     { id: 27, name: 'Alagoas', acronym: 'AL' },
@@ -33,9 +33,13 @@ function UfSelect() {
     { id: 17, name: 'Tocantins', acronym: 'TO' },
   ];
 
+  function handleUf(event) {
+    setUf(event.target.value);
+  }
+
   return (
     <div className="location-select">
-      <select id="location" name="estado">
+      <select onChange={handleUf} value={uf} id="location" name="estado">
         <option value="D" defaultValue hidden>
           Selecione...
         </option>

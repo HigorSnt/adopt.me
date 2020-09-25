@@ -2,6 +2,7 @@
   padding: 1rem;
   border: 2px solid var(--color-purple);
   margin-bottom: 1rem;
+  min-height: 8rem;
 }
 
 .options {

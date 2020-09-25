@@ -18,7 +18,7 @@ function Header() {
               <li>
                 <a href="#">
                   {' '}
-                  <FaHeart /> doe
+                  <FaHeart /> <span>doe</span>
                 </a>
               </li>
               <li>
