@@ -1,6 +1,6 @@
 exports.up = function (knex) {
   return knex.schema.createTable('pets', table => {
-    table.increments('id').primary();
+    table.increments('id');
     table.string('name').notNullable();
     table.string('description').notNullable();
     table.string('breed');
@@ -17,11 +17,7 @@ exports.up = function (knex) {
       .references('id')
       .inTable('species');
 
-    // ? Seria interessante anexar os dados de vacinação?
-    // ? Caso sim, seria mais melhor pensar como uma entidade? Provavelmente.
-
-    // TODO transformar em chave estrangeira com a tabela referente às instituições.
-    table.string('ong').notNullable();
+    table.string('ong_cnpj').notNullable().references('cnpj').inTable('ongs');
   });
 };
 
