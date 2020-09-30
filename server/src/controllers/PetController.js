@@ -1,50 +1,22 @@
 const db = require('../database/connection');
+const PetService = require('../services/PetService');
 
 module.exports = {
   async create(req, res, next) {
-    const { filename } = req.file;
-    const {
-      name,
-      description,
-      breed,
-      genre,
-      age,
-      specialCares: special_cares,
-      castrated,
-      dewormed,
-      specie: specie_id,
-      ong,
-    } = req.body;
+    let insertedPet = await PetService.create(req.file, req.body, req.cnpj);
 
-    const pet = {
-      name,
-      description,
-      breed,
-      genre,
-      age,
-      photo_name: filename,
-      special_cares,
-      castrated,
-      dewormed,
-      specie_id,
-      ong,
-    };
-
-    let [id] = await db('pets').insert(pet);
-
-    res.status(201).json({ id, ...pet });
+    return res.status(201).json(insertedPet);
   },
 
-  async getPet(req, res, next) {
-    const { id } = req.params;
-    const pet = await db('pets').where('id', id).select('*').first();
+  async show(req, res, next) {
+    let pet = await PetService.show(req.params);
 
-    res.status(200).json(pet);
+    return res.status(200).json(pet);
   },
 
   async index(req, res, next) {
-    const pets = await db('pets').select('*');
+    let pets = await PetService.index();
 
-    res.status(200).json(pets);
+    return res.status(200).json(pets);
   },
 };

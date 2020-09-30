@@ -1,9 +1,8 @@
-const db = require('../database/connection');
-const { create } = require('./PetController');
+const SpecieService = require('../services/SpecieService');
 
 module.exports = {
   async index(req, res, next) {
-    let species = await db('species').select('*');
+    let species = await SpecieService.index();
 
     return res.status(200).json(species);
   },
