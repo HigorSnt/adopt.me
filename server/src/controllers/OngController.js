@@ -12,4 +12,10 @@ module.exports = {
 
     return res.json(ong);
   },
+
+  async getOngPets(req, res, next) {
+    let ongPets = await OngService.getOngPets(req.cnpj);
+
+    return res.json(ongPets);
+  },
 };

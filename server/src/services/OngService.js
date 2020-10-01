@@ -1,5 +1,6 @@
 const authUtils = require('../utils/auth');
 const db = require('../database/connection');
+const { index } = require('../controllers/PetController');
 
 module.exports = {
   async create(ong) {
@@ -23,5 +24,13 @@ module.exports = {
       .first();
 
     return ong;
+  },
+
+  async getOngPets(cnpj) {
+    const pets = await db('ongs')
+      .join('pets', 'ongs.cnpj', '=', 'pets.ong_cnpj')
+      .where('cnpj', cnpj)
+      .select('pets.*');
+    return pets;
   },
 };

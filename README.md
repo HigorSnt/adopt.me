@@ -12,6 +12,7 @@
 </p>
 <p align="center">
   <a href="#bookmark-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#bookmark-sobre">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="./server/README.md">Documentação da API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
@@ -24,6 +25,43 @@ Estima-se que apenas no Brasil existe cerca de 30 milhões de animais abandonado
   
 Logo, a ideia por trás desse projeto é unir ONG's que realizam a conexão entre pessoas e animais vítimas de maus-tratos, de abandono, ou de qualquer outras circunstâncias que os levaram a chegar nessas instituições, e pessoas interessadas em dar um novo lar para esses bichinhos. Portanto, a ONG realizará um cadastro sendo passado algumas informações importantes, e daí poderá postar fotos e informações dos animais.  
 Os usuários acessarão o site e poderão filtrar por espécie e localidade, além de verificar informações mais detalhadas sobre o próprio animal e a instituição, poderá realizar uma doação e entrar em contato com os responsáveis para tratar diretamente sobre a adoção, isso tudo sem necessidade de realização de cadastro.
+
+## 🛠 Utilização
+
+- ### **Pré-requisitos**
+
+  - É **necessário** possuir o **[Node.js](https://nodejs.org/en/)** instalado no computador
+  - É **necessário** possuir o **[Git](https://git-scm.com/)** instalado e configurado no computador
+  - Também, é **preciso** ter um gerenciador de pacotes seja o **[NPM](https://www.npmjs.com/)** ou **[Yarn](https://yarnpkg.com/)**.
+
+1. Faça um clone do repositório:
+
+```sh
+  $ git clone https://github.com/HigorSnt/adopt.me.git
+```
+
+2. Executando a Aplicação:
+
+```sh
+  # Inicialmente, é importante entrar na pasta gerada após o comando de clone
+  $ cd adopt.me
+
+  # Em seguida, é importante abrir a pasta da API
+  $ cd server
+  # Instalando as dependências do projeto.
+  $ yarn # ou npm install
+  # Configurando o banco de dados e criando as tabelas.
+  $ yarn knex:migrate # ou npx knex:migrate
+  # Inicie a API
+  $ yarn start # ou npm start
+
+  # Aplicação web
+  $ cd client
+  # Instalando as dependências do projeto.
+  $ yarn # ou npm install
+  # Inicie a aplicação web
+  $ yarn start # ou npm start
+```
 
 ## 🦊 Licença
 

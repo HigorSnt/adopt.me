@@ -10,8 +10,6 @@ var speciesRouter = require('./routes/species');
 var ongsRouter = require('./routes/ongs');
 var loginRouter = require('./routes/login');
 
-var authentication = require('./middlewares/authentication');
-
 var app = express();
 
 // view engine setup
@@ -29,7 +27,6 @@ app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads')));
 app.use('/species', speciesRouter);
 app.use('/ongs', ongsRouter);
 app.use('/login', loginRouter);
-app.use(authentication);
 app.use('/pets', petsRouter);
 
 // catch 404 and forward to error handler

@@ -33,7 +33,7 @@ module.exports = {
     return { id, ...pet };
   },
 
-  async show(id) {
+  async show({ id }) {
     const pet = await db('pets').where('id', id).select('*').first();
     return pet;
   },
@@ -64,6 +64,26 @@ module.exports = {
         'ongs.phone'
       );
 
-    return pets;
+    return pets.map(a => {
+      return {
+        id: a.id,
+        name: a.name,
+        description: a.description,
+        breed: a.breed,
+        genre: a.genre,
+        age: a.age,
+        photo_name: a.photo_name,
+        special_cares: a.special_cares,
+        castrated: a.castrated,
+        dewormed: a.dewormed,
+        ong: {
+          email: a.email,
+          cnpj: a.cnpj,
+          address: a.address,
+          whatsapp: a.whatsapp,
+          phone: a.phone,
+        },
+      };
+    });
   },
 };
