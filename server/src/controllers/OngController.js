@@ -10,6 +10,6 @@ module.exports = {
   async show(req, res, next) {
     let ong = await OngService.show(req.params);
 
-    return res.status(200).json(ong);
+    return res.json(ong);
   },
 };

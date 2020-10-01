@@ -38,7 +38,32 @@ module.exports = {
     return pet;
   },
 
-  async index() {
-    return await db('pets').select('*');
+  async index({ age, specie, uf }) {
+    const pets = await db('pets')
+      .join('ongs', 'pets.ong_cnpj', '=', 'ongs.cnpj')
+      .where(qb => {
+        if (uf) qb.where('address', 'like', `%${uf}%`);
+        if (specie) qb.where('specie_id', `${specie}`);
+        if (age) qb.where('age', '<=', age);
+      })
+      .select(
+        'pets.id',
+        'pets.name',
+        'pets.description',
+        'pets.breed',
+        'pets.genre',
+        'pets.age',
+        'pets.photo_name',
+        'pets.special_cares',
+        'pets.castrated',
+        'pets.dewormed',
+        'ongs.email',
+        'ongs.cnpj',
+        'ongs.address',
+        'ongs.whatsapp',
+        'ongs.phone'
+      );
+
+    return pets;
   },
 };

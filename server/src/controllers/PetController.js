@@ -1,4 +1,3 @@
-const db = require('../database/connection');
 const PetService = require('../services/PetService');
 
 module.exports = {
@@ -11,12 +10,12 @@ module.exports = {
   async show(req, res, next) {
     let pet = await PetService.show(req.params);
 
-    return res.status(200).json(pet);
+    return res.json(pet);
   },
 
   async index(req, res, next) {
-    let pets = await PetService.index();
+    let pets = await PetService.index(req.query);
 
-    return res.status(200).json(pets);
+    return res.json(pets);
   },
 };
