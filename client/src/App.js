@@ -3,7 +3,7 @@ import Scrollbars from 'react-custom-scrollbars';
 
 import './assets/styles/global.css';
 
-import AdoptableAnimals from './pages/AdoptableAnimals';
+import Routes from './routes';
 
 function App() {
   function renderThumb({ style, ...props }) {
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <Scrollbars renderThumbVertical={renderThumb}>
-      <AdoptableAnimals />
+      <Routes />
     </Scrollbars>
   );
 }

@@ -58,30 +58,32 @@ module.exports = {
         'pets.castrated',
         'pets.dewormed',
         'ongs.email',
+        'ongs.name as ong_name',
         'ongs.cnpj',
         'ongs.address',
         'ongs.whatsapp',
         'ongs.phone'
       );
 
-    return pets.map(a => {
+    return pets.map(pet => {
       return {
-        id: a.id,
-        name: a.name,
-        description: a.description,
-        breed: a.breed,
-        genre: a.genre,
-        age: a.age,
-        photo_name: a.photo_name,
-        special_cares: a.special_cares,
-        castrated: a.castrated,
-        dewormed: a.dewormed,
+        id: pet.id,
+        name: pet.name,
+        description: pet.description,
+        breed: pet.breed,
+        genre: pet.genre,
+        age: pet.age,
+        photo_name: pet.photo_name,
+        special_cares: pet.special_cares,
+        castrated: pet.castrated,
+        dewormed: pet.dewormed,
         ong: {
-          email: a.email,
-          cnpj: a.cnpj,
-          address: a.address,
-          whatsapp: a.whatsapp,
-          phone: a.phone,
+          name: pet.ong_name,
+          email: pet.email,
+          cnpj: pet.cnpj,
+          address: pet.address,
+          whatsapp: pet.whatsapp,
+          phone: pet.phone,
         },
       };
     });
