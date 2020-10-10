@@ -188,6 +188,7 @@ As rotas presentes na aplicação serão descritas abaixo:
             "castrated": boolean,
             "dewormed": boolean,
             "ong": {
+              "name": string,
               "email": string,
               "cnpj": string,
               "address": string,

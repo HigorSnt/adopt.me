@@ -2,12 +2,11 @@ import React from 'react';
 import { FaBirthdayCake, FaClinicMedical, FaInfoCircle, FaVenusMars, FaTag } from 'react-icons/fa';
 
 import './styles.css';
-import dog from '../../assets/images/dog.png';
 
 function ListItem({ pet }) {
   return (
     <div className="card">
-      <img src={dog} alt="tobby" />
+      <img src={`http://localhost:3333/files/${pet.photo_name}` } alt="tobby" />
       <div className="card-details">
         <h2>{pet.name}</h2>
         <div className="item">

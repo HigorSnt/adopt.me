@@ -7,103 +7,25 @@ import FilterArea from '../../components/FilterArea';
 import UfSelect from '../../components/UfSelect';
 import AgeRange from '../../components/AgeRange';
 
+import api from '../../services/api';
+
 import './styles.css';
 
 function AdoptableAnimals() {
-  let animalsMock = [
-    {
-      id: 1,
-      name: 'Tobby',
-      description:
-        'Tobby é um cachorrinho que foi encontrado abandonado na rua e chegou até a gente.\\nDemos alimentação, abrigo e carinho, mas é hora dele encontrar uma nova casa.',
-      breed: 'Beagle',
-      genre: 1,
-      age: 2,
-      photo_name: 'dog-1601578544512.png',
-      special_cares: false,
-      castrated: false,
-      dewormed: true,
-      ong: {
-        name: 'Centro de Zoonoses',
-        email: 'zoonosescg@gmail.com',
-        cnpj: '72568203000190',
-        address: 'Rua Isolda Barros Torquato, S/N 58430-030 Campina Grande, PB',
-        whatsapp: '',
-        phone: '8333107062',
-      },
-    },
-    {
-      id: 2,
-      name: 'Luna',
-      description:
-        'Tobby é um cachorrinho que foi encontrado abandonado na rua e chegou até a gente.\\nDemos alimentação, abrigo e carinho, mas é hora dele encontrar uma nova casa.',
-      breed: 'Beagle',
-      genre: 2,
-      age: 6,
-      photo_name: 'dog-1601506879617.png',
-      special_cares: false,
-      castrated: false,
-      dewormed: true,
-      ong: {
-        name: 'Centro de Zoonoses',
-        email: 'zoonosescg@gmail.com',
-        cnpj: '72568203000190',
-        address: 'Rua Isolda Barros Torquato, S/N 58430-030 Campina Grande, PB',
-        whatsapp: '',
-        phone: '8333107062',
-      },
-    },
-    {
-      id: 3,
-      name: 'Spike',
-      description:
-        'Tobby é um cachorrinho que foi encontrado abandonado na rua e chegou até a gente.\\nDemos alimentação, abrigo e carinho, mas é hora dele encontrar uma nova casa.',
-      breed: 'Beagle',
-      genre: 1,
-      age: 0.5,
-      photo_name: 'dog-1601520170848.png',
-      special_cares: true,
-      castrated: true,
-      dewormed: false,
-      ong: {
-        name: 'Centro de Zoonoses',
-        email: 'zoonosescg@gmail.com',
-        cnpj: '72568203000190',
-        address: 'Rua Isolda Barros Torquato, S/N 58430-030 Campina Grande, PB',
-        whatsapp: '',
-        phone: '8333107062',
-      },
-    },
-    {
-      id: 4,
-      name: 'Dexter',
-      description:
-        'Tobby é um cachorrinho que foi encontrado abandonado na rua e chegou até a gente.\\nDemos alimentação, abrigo e carinho, mas é hora dele encontrar uma nova casa.',
-      breed: 'Beagle',
-      genre: 1,
-      age: 0.3,
-      photo_name: 'dog-1601578552993.png',
-      special_cares: false,
-      castrated: false,
-      dewormed: true,
-      ong: {
-        name: 'Centro de Zoonoses',
-        email: 'zoonosescg@gmail.com',
-        cnpj: '72568203000190',
-        address: 'Rua Isolda Barros Torquato, S/N 58430-030 Campina Grande, PB',
-        whatsapp: '',
-        phone: '8333107062',
-      },
-    },
-  ];
-
-  const [animals, setAnimals] = useState(animalsMock);
+  const [animals, setAnimals] = useState([]);
   const [ageValue, setAgeValue] = useState([0]);
   const [optionsSelected, setOptionsSelected] = useState([]);
   const [ufSelected, setUfSelected] = useState('');
 
   useEffect(() => {
+    api.get('pets').then(response => {
+      setAnimals(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
     search();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ufSelected, optionsSelected, ageValue]);
 
   function handleInputRange(values) {
@@ -114,7 +36,7 @@ function AdoptableAnimals() {
   // TODO aplicar context para melhorar as atualizações de estado
   function search() {
     console.log(`ageValue: ${ageValue}`);
-    console.log(`optionsSelected: ${optionsSelected}`);
+    console.log(`optionsSelected: ${optionsSelected.map(opt => opt.specie)}`);
     console.log(`ufSelected: ${ufSelected}`);
   }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import logo from '../../assets/images/adopte.me.svg';
 
@@ -16,22 +17,22 @@ function Header() {
           <div>
             <ul>
               <li>
-                <a href="#">
+                <Link to="">
                   {' '}
                   <FaHeart /> <span>doe</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#">home</a>
+                <Link to="">home</Link>
               </li>
               <li>
-                <a href="#">animais para adoção</a>
+                <Link to="/">animais para adoção</Link>
               </li>
               <li>
-                <a href="#">sobre</a>
+                <Link to="">sobre</Link>
               </li>
               <li>
-                <a href="#">login</a>
+                <Link to="">login</Link>
               </li>
             </ul>
           </div>
