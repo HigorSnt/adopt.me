@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Range, getTrackBackground } from 'react-range';
 
 function AgeRange({ age, onChange }) {
@@ -7,6 +8,7 @@ function AgeRange({ age, onChange }) {
       <div
         {...props}
         style={{
+          // eslint-disable-next-line react/prop-types
           ...props.style,
           width: '100%',
           height: '1rem',
@@ -29,6 +31,7 @@ function AgeRange({ age, onChange }) {
       <div
         {...props}
         style={{
+          // eslint-disable-next-line react/prop-types
           ...props.style,
           height: '2.5rem',
           width: '2.5rem',
@@ -54,5 +57,10 @@ function AgeRange({ age, onChange }) {
     </div>
   );
 }
+
+AgeRange.propTypes = {
+  age: PropTypes.array.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default AgeRange;

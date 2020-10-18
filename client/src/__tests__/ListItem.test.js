@@ -15,9 +15,9 @@ const dog = {
   genre: 2,
   age: 0.5,
   photo_name: 'dog-1601506879617.png',
-  special_cares: 'false',
-  castrated: 'false',
-  dewormed: 'true',
+  special_cares: false,
+  castrated: false,
+  dewormed: true,
   ong: {
     name: 'Centro de Zoonoses',
     email: 'zoonosescg@gmail.com',
@@ -35,7 +35,7 @@ const cacatua = {
   genre: 1,
   age: 1,
   photo_name: 'cacatua-1601506879617.png',
-  special_cares: 'false',
+  special_cares: true,
   ong: {
     name: 'Centro de Zoonoses',
     email: 'zoonosescg@gmail.com',
@@ -64,6 +64,9 @@ it('a pet list item must be rendered', () => {
   });
   expect(container.querySelector('.card-details h2').textContent).toEqual(dog.name);
   expect(screen.getByTestId('age-icon')).toBeInTheDocument();
+  expect(screen.getByTestId('special-cares-text').textContent).toEqual(
+    'Não precisa de cuidados especiais',
+  );
   expect(container.querySelector('#age span').textContent).toEqual('6 meses');
   expect(container.querySelector('#breed')).toBeInTheDocument();
   expect(container.querySelector('#genre span').textContent).toEqual('Fêmea');
@@ -73,6 +76,9 @@ it('a pet list item must be rendered', () => {
   });
   expect(container.querySelector('.card-details h2').textContent).toEqual(cacatua.name);
   expect(screen.getByTestId('age-icon')).toBeInTheDocument();
+  expect(screen.getByTestId('special-cares-text').textContent).toEqual(
+    'Precisa de cuidados especiais',
+  );
   expect(container.querySelector('#age span').textContent).toEqual('1 ano');
   expect(container.querySelector('#breed')).not.toBeInTheDocument();
   expect(container.querySelector('#genre span').textContent).toEqual('Macho');

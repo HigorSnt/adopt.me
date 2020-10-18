@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { FaTimes } from 'react-icons/fa';
 
 import api from '../../services/api';
@@ -50,5 +51,10 @@ function FilterArea({ selected, setSelected }) {
     </div>
   );
 }
+
+FilterArea.propTypes = {
+  selected: PropTypes.array.isRequired,
+  setSelected: PropTypes.func.isRequired,
+};
 
 export default FilterArea;

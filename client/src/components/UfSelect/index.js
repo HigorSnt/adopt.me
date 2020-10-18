@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -54,5 +55,10 @@ function UfSelect({ uf, setUf }) {
     </div>
   );
 }
+
+UfSelect.propTypes = {
+  uf: PropTypes.string.isRequired,
+  setUf: PropTypes.func.isRequired,
+};
 
 export default UfSelect;
