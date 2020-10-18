@@ -9,13 +9,13 @@ function FilterArea({ selected, setSelected }) {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    api.get('species').then(response => {
+    api.get('species').then((response) => {
       setOptions(response.data.sort(sortOptions));
     });
   }, []);
 
   function sortOptions(a, b) {
-    return (a.specie > b.specie) ? 1 : -1;
+    return a.specie > b.specie ? 1 : -1;
   }
 
   function handleSelected(option) {

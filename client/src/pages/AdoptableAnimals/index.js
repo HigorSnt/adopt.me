@@ -18,7 +18,7 @@ function AdoptableAnimals() {
   const [ufSelected, setUfSelected] = useState('');
 
   useEffect(() => {
-    api.get('pets').then(response => {
+    api.get('pets').then((response) => {
       setAnimals(response.data);
     });
   }, []);
@@ -36,7 +36,7 @@ function AdoptableAnimals() {
   // TODO aplicar context para melhorar as atualizações de estado
   function search() {
     console.log(`ageValue: ${ageValue}`);
-    console.log(`optionsSelected: ${optionsSelected.map(opt => opt.specie)}`);
+    console.log(`optionsSelected: ${optionsSelected.map((opt) => opt.specie)}`);
     console.log(`ufSelected: ${ufSelected}`);
   }
 
