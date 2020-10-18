@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaBirthdayCake, FaClinicMedical, FaInfoCircle, FaVenusMars, FaTag } from 'react-icons/fa';
 
 import './styles.css';
@@ -29,7 +30,7 @@ function ListItem({ pet }) {
 
         <div id="special-cares" className="item">
           <FaClinicMedical />
-          <span>
+          <span data-testid="special-cares-text">
             {pet.special_cares
               ? 'Precisa de cuidados especiais'
               : 'Não precisa de cuidados especiais'}
@@ -49,5 +50,28 @@ function ListItem({ pet }) {
     </div>
   );
 }
+
+ListItem.propTypes = {
+  pet: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    breed: PropTypes.string,
+    genre: PropTypes.number.isRequired,
+    age: PropTypes.number.isRequired,
+    photo_name: PropTypes.string.isRequired,
+    special_cares: PropTypes.bool.isRequired,
+    castrated: PropTypes.bool,
+    dewormed: PropTypes.bool,
+    ong: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string.isRequired,
+      cnpj: PropTypes.string.isRequired,
+      address: PropTypes.string.isRequired,
+      whatsapp: PropTypes.string,
+      phone: PropTypes.string.isRequired,
+    }),
+  }),
+};
 
 export default ListItem;
