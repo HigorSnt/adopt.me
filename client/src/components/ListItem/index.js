@@ -6,24 +6,28 @@ import './styles.css';
 function ListItem({ pet }) {
   return (
     <div className="card">
-      <img src={`http://localhost:3333/files/${pet.photo_name}` } alt="tobby" />
+      <img src={`http://localhost:3333/files/${pet.photo_name}`} alt="tobby" />
       <div className="card-details">
         <h2>{pet.name}</h2>
-        <div className="item">
-          <FaBirthdayCake />
+        <div id="age" className="item">
+          <FaBirthdayCake data-testid="age-icon" />
           <span>
-            {pet.age < 1 ? `${Math.floor(pet.age * 12)} meses` : `${Math.floor(pet.age)} anos`}
+            {pet.age < 1
+              ? `${Math.floor(pet.age * 12)} meses`
+              : pet.age === 1
+              ? `${Math.floor(pet.age)} ano`
+              : `${Math.floor(pet.age)} anos`}
           </span>
         </div>
 
         {pet.breed && (
-          <div className="item">
+          <div id="breed" className="item">
             <FaTag />
             <span>{pet.breed}</span>
           </div>
         )}
 
-        <div className="item">
+        <div id="special-cares" className="item">
           <FaClinicMedical />
           <span>
             {pet.special_cares
@@ -32,12 +36,12 @@ function ListItem({ pet }) {
           </span>
         </div>
 
-        <div className="item">
+        <div id="genre" className="item">
           <FaVenusMars />
           <span>{pet.genre === 1 ? 'Macho' : 'Fêmea'}</span>
         </div>
 
-        <div className="item">
+        <div id="ong-name" className="item">
           <FaInfoCircle />
           <span>{pet.ong.name}</span>
         </div>
