@@ -1,9 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+
+import * as Actions from '../../constants';
+import AdoptableAnimalsContext from '../../contexts/AdoptableAnimalsContext';
 
 import './styles.css';
 
-function UfSelect({ uf, setUf }) {
+function UfSelect() {
+  const { state, dispatch } = useContext(AdoptableAnimalsContext);
+  const { uf } = state;
+
   const ufs = [
     { id: 12, name: 'Acre', acronym: 'AC' },
     { id: 27, name: 'Alagoas', acronym: 'AL' },
@@ -35,7 +40,7 @@ function UfSelect({ uf, setUf }) {
   ];
 
   function handleUf(event) {
-    setUf(event.target.value);
+    dispatch({ type: Actions.CHANGE_UF_SELECTED, payload: event.target.value });
   }
 
   return (
@@ -55,10 +60,5 @@ function UfSelect({ uf, setUf }) {
     </div>
   );
 }
-
-UfSelect.propTypes = {
-  uf: PropTypes.string.isRequired,
-  setUf: PropTypes.func.isRequired,
-};
 
 export default UfSelect;

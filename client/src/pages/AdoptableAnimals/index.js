@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Header from '../../components/Header';
@@ -7,15 +7,22 @@ import FilterArea from '../../components/FilterArea';
 import UfSelect from '../../components/UfSelect';
 import AgeRange from '../../components/AgeRange';
 
+import { filterReducer } from '../../reducers/FilterReducer';
 import api from '../../services/api';
+import AdoptableAnimalsContext from '../../contexts/AdoptableAnimalsContext';
 
 import './styles.css';
 
+const initialState = {
+  ageValue: [0],
+  optionsSelected: [],
+  ufSelected: '',
+};
+
 function AdoptableAnimals() {
+  const [state, dispatch] = useReducer(filterReducer, initialState);
+
   const [animals, setAnimals] = useState([]);
-  const [ageValue, setAgeValue] = useState([0]);
-  const [optionsSelected, setOptionsSelected] = useState([]);
-  const [ufSelected, setUfSelected] = useState('');
 
   useEffect(() => {
     api.get('pets').then((response) => {
@@ -26,34 +33,29 @@ function AdoptableAnimals() {
   useEffect(() => {
     search();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ufSelected, optionsSelected, ageValue]);
-
-  function handleInputRange(values) {
-    setAgeValue(values);
-  }
+  }, [state]);
 
   // ! lembrar ao passar um array de options vazio deve-se mostrar todas as opções
-  // TODO aplicar context para melhorar as atualizações de estado
   function search() {
-    console.log(`ageValue: ${ageValue}`);
-    console.log(`optionsSelected: ${optionsSelected.map((opt) => opt.specie)}`);
-    console.log(`ufSelected: ${ufSelected}`);
+    console.log(`ageValue: ${state.ageValue}`);
+    console.log(`optionsSelected: ${state.optionsSelected.map((opt) => opt.specie)}`);
+    console.log(`ufSelected: ${state.ufSelected}`);
   }
 
   return (
-    <>
+    <AdoptableAnimalsContext.Provider value={{ state, dispatch }}>
       <Header />
       <div className="container">
         <aside>
           <form>
             <label htmlFor="animal">buscar por...</label>
-            <FilterArea id="animal" selected={optionsSelected} setSelected={setOptionsSelected} />
+            <FilterArea id="animal" />
 
             <label htmlFor="location">estado</label>
-            <UfSelect uf={ufSelected} setUf={setUfSelected} />
+            <UfSelect />
 
-            <label htmlFor="age">a busca será por animais com até {ageValue[0]} anos</label>
-            <AgeRange age={ageValue} onChange={handleInputRange} />
+            <label htmlFor="age">a busca será por animais com até {state.ageValue[0]} anos</label>
+            <AgeRange />
           </form>
         </aside>
 
@@ -65,7 +67,7 @@ function AdoptableAnimals() {
           ))}
         </main>
       </div>
-    </>
+    </AdoptableAnimalsContext.Provider>
   );
 }
 

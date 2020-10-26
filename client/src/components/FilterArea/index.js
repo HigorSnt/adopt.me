@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect, useContext } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
+import * as Actions from '../../constants';
+import AdoptableAnimalsContext from '../../contexts/AdoptableAnimalsContext';
 import api from '../../services/api';
 
 import './styles.css';
 
-function FilterArea({ selected, setSelected }) {
+function FilterArea() {
   const [options, setOptions] = useState([]);
+  const { state, dispatch } = useContext(AdoptableAnimalsContext);
+  const { optionsSelected: selected } = state;
 
   useEffect(() => {
     api.get('species').then((response) => {
@@ -22,12 +25,15 @@ function FilterArea({ selected, setSelected }) {
   function handleSelected(option) {
     let newOptions = [...options];
     setOptions(newOptions.filter((e) => e !== option).sort(sortOptions));
-    setSelected([...selected, option]);
+    dispatch({ type: Actions.CHANGE_OPTIONS_SELECTED, payload: [...selected, option] });
   }
 
   function handleDeselect(option) {
     let newSelected = [...selected];
-    setSelected(newSelected.filter((e) => e !== option));
+    dispatch({
+      type: Actions.CHANGE_OPTIONS_SELECTED,
+      payload: newSelected.filter((e) => e !== option),
+    });
     setOptions([...options, option].sort(sortOptions));
   }
 
@@ -51,10 +57,5 @@ function FilterArea({ selected, setSelected }) {
     </div>
   );
 }
-
-FilterArea.propTypes = {
-  selected: PropTypes.array.isRequired,
-  setSelected: PropTypes.func.isRequired,
-};
 
 export default FilterArea;

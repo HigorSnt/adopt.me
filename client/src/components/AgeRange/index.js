@@ -1,8 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import { Range, getTrackBackground } from 'react-range';
 
-function AgeRange({ age, onChange }) {
+import * as Actions from '../../constants';
+import AdoptableAnimalsContext from '../../contexts/AdoptableAnimalsContext';
+
+function AgeRange() {
+  const { state, dispatch } = useContext(AdoptableAnimalsContext);
+  const { ageValue } = state;
+
+  function handleInputRange(values) {
+    dispatch({ type: Actions.CHANGE_AGE, payload: values });
+  }
+
   function renderTrack({ props, children }) {
     return (
       <div
@@ -14,7 +23,7 @@ function AgeRange({ age, onChange }) {
           height: '1rem',
           borderRadius: '1rem',
           background: getTrackBackground({
-            values: age,
+            values: ageValue,
             colors: ['var(--color-gainsboro)', 'var(--color-light-gray)'],
             min: 0,
             max: 50,
@@ -47,8 +56,8 @@ function AgeRange({ age, onChange }) {
     <div id="age">
       <Range
         step={1}
-        values={age}
-        onChange={onChange}
+        values={ageValue}
+        onChange={handleInputRange}
         min={0}
         max={50}
         renderTrack={renderTrack}
@@ -57,10 +66,5 @@ function AgeRange({ age, onChange }) {
     </div>
   );
 }
-
-AgeRange.propTypes = {
-  age: PropTypes.array.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
 
 export default AgeRange;
