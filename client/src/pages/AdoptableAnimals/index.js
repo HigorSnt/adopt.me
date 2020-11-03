@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import ListItem from '../../components/ListItem';
@@ -61,9 +60,7 @@ function AdoptableAnimals() {
 
         <main>
           {animals.map((animal) => (
-            <Link key={animal.id} to={{ pathname: '/pet', pet: animal }}>
-              <ListItem pet={animal} />
-            </Link>
+            <ListItem key={animal.id} pet={animal} />
           ))}
         </main>
       </div>

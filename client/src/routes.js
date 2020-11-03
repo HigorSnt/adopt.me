@@ -10,7 +10,7 @@ function Routes() {
       <Route path="/" exact component={AdoptableAnimals} />
       <Route
         path="/pet"
-        render={(props) => (props.location.pet ? <PetDetails /> : <Redirect to="/" />)}
+        render={(props) => (props.location.state.pet ? <PetDetails /> : <Redirect to="/" />)}
       />
     </BrowserRouter>
   );

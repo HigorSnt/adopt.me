@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FaBirthdayCake, FaClinicMedical, FaInfoCircle, FaVenusMars, FaTag } from 'react-icons/fa';
+import { useHistory } from 'react-router-dom';
 
 import './styles.css';
 
 function ListItem({ pet }) {
+
+  const history = useHistory();
+
+  function handleClick() {
+    history.push('pet', { pet });
+  }
+
   return (
-    <div className="card">
+    <div className="card" onClick={handleClick}>
       <img src={`http://localhost:3333/files/${pet.photo_name}`} alt="tobby" />
       <div className="card-details">
         <h2>{pet.name}</h2>
