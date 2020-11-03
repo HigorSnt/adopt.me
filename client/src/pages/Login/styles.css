@@ -1,0 +1,39 @@
+input {
+  background-color: var(--color-background-opacity);
+}
+
+.box {
+  height: 100vh;
+  
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box .box-content {
+  width: 50%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.box-content input[type=text] {
+  width: 70%;
+}
+
+.input-password {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-password input {
+  width: calc(70% - 20px - 0.5rem);
+  margin-right: 0.5rem;
+}

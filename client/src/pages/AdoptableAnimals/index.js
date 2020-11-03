@@ -7,7 +7,7 @@ import UfSelect from '../../components/UfSelect';
 import AgeRange from '../../components/AgeRange';
 
 import { filterReducer } from '../../reducers/FilterReducer';
-import api from '../../services/api';
+import { getPets } from '../../services/api';
 import AdoptableAnimalsContext from '../../contexts/AdoptableAnimalsContext';
 
 import './styles.css';
@@ -24,15 +24,18 @@ function AdoptableAnimals() {
   const [animals, setAnimals] = useState([]);
 
   useEffect(() => {
-    api.get('pets').then((response) => {
-      setAnimals(response.data);
-    });
+    getAnimals();
   }, []);
 
   useEffect(() => {
     search();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
+
+  async function getAnimals() {
+    let pets = await getPets();
+    setAnimals(pets);
+  }
 
   // ! lembrar ao passar um array de options vazio deve-se mostrar todas as opções
   function search() {
