@@ -4,6 +4,7 @@ import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import AdoptableAnimals from './pages/AdoptableAnimals';
 import Login from './pages/Login';
 import PetDetails from './pages/PetDetails';
+import Register from './pages/Register';
 
 function Routes() {
   return (
@@ -14,6 +15,7 @@ function Routes() {
         render={(props) => (props.location.state.pet ? <PetDetails /> : <Redirect to="/" />)}
       />
       <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
     </BrowserRouter>
   );
 }

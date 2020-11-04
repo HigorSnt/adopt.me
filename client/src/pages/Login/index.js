@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
+import Input from '../../components/Input';
+
+import logo from '../../assets/images/adopte.me.svg';
+import pet from '../../assets/images/pet.jpg';
 
 import './styles.css';
 
@@ -22,29 +28,44 @@ function Login() {
 
   return (
     <div className="box">
-      <div className="box-content">
-        <input
-          type="text"
-          name="email"
-          id="email"
-          placeholder="Digite o e-mail utilizado no cadastro..."
-          value={email}
-          onChange={handleEmail}
+      <div className="box-title">
+        <p>Vamos juntos ajudar animais a encontrar lares!</p>
+        <img
+          src={pet}
+          id="img-cat"
+          alt="Referência: https://www.vectorstock.com/royalty-free-vector/pet-shop-pets-vector-17932236"
         />
-        <div className="input-password">
-          <input
-            type={inputType}
-            value={password}
-            onChange={handlePassword}
-            name="password"
-            id="password"
-            placeholder="Digite sua senha"
+      </div>
+      <div className="box-input-area">
+        <img src={logo} alt="logo" id="img-logo" />
+        <div className="input-area">
+          <Input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Digite o e-mail utilizado no cadastro..."
+            value={email}
+            onChange={handleEmail}
           />
-          {inputType === 'password' ? (
-            <FaEyeSlash size={20} onClick={handleInputType} />
-          ) : (
-            <FaEye size={20} onClick={handleInputType} />
-          )}
+          <div className="input-password">
+            <Input
+              type={inputType}
+              value={password}
+              onChange={handlePassword}
+              name="password"
+              id="password"
+              placeholder="Digite sua senha"
+            />
+            {inputType === 'password' ? (
+              <FaEyeSlash size={20} onClick={handleInputType} />
+            ) : (
+              <FaEye size={20} onClick={handleInputType} />
+            )}
+          </div>
+          <button type="submit">Login</button>
+          <Link to="/register">
+            <p id="register-link">Não tenho cadastro ainda!</p>
+          </Link>
         </div>
       </div>
     </div>
