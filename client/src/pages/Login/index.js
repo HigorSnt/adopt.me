@@ -1,74 +1,66 @@
-import React, { useState } from 'react';
-import { FaEyeSlash, FaEye } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React, { useReducer } from 'react';
 
-import Input from '../../components/Input';
+import * as Actions from '../../constants';
+import InputArea from '../../components/InputArea';
+import AuthContext from '../../contexts/AuthContext';
+import { authReducer } from '../../reducers/AuthReducer';
 
 import logo from '../../assets/images/adopte.me.svg';
 import pet from '../../assets/images/pet.jpg';
 
 import './styles.css';
+import { Link } from 'react-router-dom';
+
+const initialState = {
+  email: '',
+  password: '',
+};
 
 function Login() {
-  const [inputType, setInputType] = useState('password');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [state, dispatch] = useReducer(authReducer, initialState);
 
-  function handleInputType() {
-    setInputType(inputType === 'password' ? 'text' : 'password');
-  }
+  const inputs = [
+    {
+      type: 'text',
+      name: 'email',
+      id: 'email',
+      placeholder: 'Digite o e-mail utilizado no cadastro',
+      value: state.email,
+      onChange: (e) => dispatch({ type: Actions.CHANGE_EMAIL, payload: e.target.value }),
+    },
+  ];
 
-  function handleEmail(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePassword(e) {
-    setPassword(e.target.value);
-  }
+  const passwordInputs = [
+    {
+      param: 'password',
+      action: Actions.CHANGE_PASSWORD,
+      name: 'password',
+      id: 'password',
+      placeholder: 'Digite sua senha',
+    },
+  ];
 
   return (
-    <div className="box">
-      <div className="box-title">
-        <p>Vamos juntos ajudar animais a encontrar lares!</p>
-        <img
-          src={pet}
-          id="img-cat"
-          alt="Referência: https://www.vectorstock.com/royalty-free-vector/pet-shop-pets-vector-17932236"
-        />
-      </div>
-      <div className="box-input-area">
-        <img src={logo} alt="logo" id="img-logo" />
-        <div className="input-area">
-          <Input
-            type="text"
-            name="email"
-            id="email"
-            placeholder="Digite o e-mail utilizado no cadastro..."
-            value={email}
-            onChange={handleEmail}
+    <AuthContext.Provider value={{ state, dispatch }}>
+      <div className="box">
+        <div className="box-title">
+          <p>Vamos juntos ajudar animais a encontrar lares!</p>
+          <img
+            src={pet}
+            id="img-cat"
+            alt="Referência: https://www.vectorstock.com/royalty-free-vector/pet-shop-pets-vector-17932236"
           />
-          <div className="input-password">
-            <Input
-              type={inputType}
-              value={password}
-              onChange={handlePassword}
-              name="password"
-              id="password"
-              placeholder="Digite sua senha"
-            />
-            {inputType === 'password' ? (
-              <FaEyeSlash size={20} onClick={handleInputType} />
-            ) : (
-              <FaEye size={20} onClick={handleInputType} />
-            )}
-          </div>
-          <button type="submit">Login</button>
-          <Link to="/register">
-            <p id="register-link">Não tenho cadastro ainda!</p>
-          </Link>
+        </div>
+        <div className="box-input-area">
+          <img src={logo} alt="logo" id="img-logo" />
+          <InputArea inputs={inputs} passwordInputs={passwordInputs} context={AuthContext}>
+            <Link to="/register">
+              <p id="register-link">Não tenho cadastro ainda!</p>
+            </Link>
+          </InputArea>
         </div>
       </div>
-    </div>
+    </AuthContext.Provider>
   );
 }
 

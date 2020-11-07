@@ -1,0 +1,84 @@
+input {
+  background-color: var(--color-background-opacity);
+  padding: 0.5rem;
+  height: 3.5rem;
+  color: var(--color-purple);
+  border: none;
+  margin-bottom: 0.8rem;
+  outline: none;
+}
+
+svg {
+  fill: var(--color-purple);
+}
+
+input svg {
+  margin-right: 0.5rem;
+}
+
+button {
+  width: 15rem;
+  height: 5rem;
+  background-color: var(--color-purple);
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 4rem 0;
+  cursor: pointer;
+  outline: none;
+  
+  transition: background-color 0.5s;
+}
+
+button:hover {
+  background-color: var(--color-purple-hover);
+}
+
+#img-logo {
+  width: 15rem;
+}
+
+.input-area {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-area input {
+  width: 70%;
+  border-bottom: 1px solid black;
+}
+
+.input-area > input:focus {
+  border-bottom: 1px solid var(--color-purple);
+}
+
+@media (max-width: 1000px) {
+  [placeholder] {
+    text-overflow: ellipsis;
+  }
+
+  .box-input-area {
+    width: 80%;
+  }
+}
+
+@media (max-width: 730px) {
+  #img-logo {
+    width: 10rem;
+  }
+
+  button {
+    height: 4rem;
+    margin: 3rem 0 2rem 0;
+  }
+}
+
+@media (max-width: 550px) {
+  button {
+    width: 12rem;
+  }
+}
