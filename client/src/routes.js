@@ -12,7 +12,7 @@ function Routes() {
       <Route path="/" exact component={AdoptableAnimals} />
       <Route
         path="/pet"
-        render={(props) => (props.location.state.pet ? <PetDetails /> : <Redirect to="/" />)}
+        render={(props) => (props.location.state ? <PetDetails /> : <Redirect to="/" />)}
       />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />

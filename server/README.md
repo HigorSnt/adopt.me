@@ -115,6 +115,14 @@ As rotas presentes na aplicação serão descritas abaixo:
       <pre>
       <code>
         {
+          "ong": {
+            "cnpj": string,
+            "email": string,
+            "name": string,
+            "address": string,
+            "whatsapp": string,
+            "phone": string
+          },
           "token": string
         }
       </code>

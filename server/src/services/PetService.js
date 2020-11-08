@@ -74,9 +74,9 @@ module.exports = {
         genre: pet.genre,
         age: pet.age,
         photo_name: pet.photo_name,
-        special_cares: pet.special_cares,
-        castrated: pet.castrated,
-        dewormed: pet.dewormed,
+        special_cares: Boolean(pet.special_cares),
+        castrated: Boolean(pet.castrated),
+        dewormed: Boolean(pet.dewormed),
         ong: {
           name: pet.ong_name,
           email: pet.email,

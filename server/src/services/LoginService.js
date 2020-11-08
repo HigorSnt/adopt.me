@@ -4,13 +4,13 @@ const auth = require('../utils/auth');
 
 module.exports = {
   async create(credentials) {
-    const { cnpj, password } = credentials;
+    const { email, password } = credentials;
 
-    let ong = await db('ongs').where('cnpj', cnpj).select('*').first();
+    let ong = await db('ongs').where('email', email).select('*').first();
 
     if (!ong) {
       return response.status(400).json({
-        error: `ONG com o CNPJ ${cnpj} não encontrada.`,
+        error: `ONG com o email ${email} não encontrada.`,
       });
     }
 
@@ -18,6 +18,9 @@ module.exports = {
       return response.status(401).json({ error: 'Senha Incorreta!' });
     }
 
-    return auth.generateToken(ong);
+    let token = auth.generateToken(ong);
+    const { hash_password, ...loggedOng } = ong;
+
+    return { ong: loggedOng, token };
   },
 };

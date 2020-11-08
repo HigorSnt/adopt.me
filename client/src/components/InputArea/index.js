@@ -4,7 +4,7 @@ import PasswordInput from '../PasswordInput';
 
 import './styles.css';
 
-function InputArea({ inputs, passwordInputs, context, children }) {
+function InputArea({ inputs, passwordInputs, context, children, onClick }) {
   return (
     <>
       <div className="input-area">
@@ -14,7 +14,7 @@ function InputArea({ inputs, passwordInputs, context, children }) {
         {passwordInputs.map((elem, i) => (
           <PasswordInput key={i.toString()} context={context} {...elem} />
         ))}
-        <button type="submit">Cadastrar</button>
+        <button type="submit" onClick={onClick}>Cadastrar</button>
         {children}
       </div>
     </>

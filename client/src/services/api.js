@@ -11,4 +11,12 @@ export const getPets = async () => {
   return response.data;
 };
 
+export const registerOng = async (ong) => {
+  await api.post('/ongs', ong);
+};
+
+export const login = async (credentials) => {
+  await api.post('/login', credentials)
+}
+
 export default api;

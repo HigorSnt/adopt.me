@@ -23,13 +23,7 @@ function Header() {
                 </Link>
               </li>
               <li>
-                <Link to="">home</Link>
-              </li>
-              <li>
                 <Link to="/">animais para adoção</Link>
-              </li>
-              <li>
-                <Link to="">sobre</Link>
               </li>
               <li>
                 <Link to="/login">login</Link>

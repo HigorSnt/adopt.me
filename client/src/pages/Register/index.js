@@ -5,6 +5,8 @@ import InputArea from '../../components/InputArea';
 import RegisterContext from '../../contexts/RegisterContext';
 import { registerReducer } from '../../reducers/RegisterReducer';
 
+import { registerOng } from '../../services/api';
+
 import logo from '../../assets/images/adopte.me.svg';
 import pet from '../../assets/images/pet.jpg';
 
@@ -105,7 +107,7 @@ function Register() {
         </div>
         <div className="box-input-area">
           <img src={logo} alt="logo" id="img-logo" />
-          <InputArea inputs={inputs} passwordInputs={passwordInputs} />
+          <InputArea inputs={inputs} passwordInputs={passwordInputs} onClick={registerOng} />
         </div>
       </div>
     </RegisterContext.Provider>

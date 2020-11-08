@@ -1,15 +1,16 @@
 import React, { useReducer } from 'react';
+import { Link } from 'react-router-dom';
 
 import * as Actions from '../../constants';
 import InputArea from '../../components/InputArea';
 import AuthContext from '../../contexts/AuthContext';
 import { authReducer } from '../../reducers/AuthReducer';
+import { login } from '../../services/api';
 
 import logo from '../../assets/images/adopte.me.svg';
 import pet from '../../assets/images/pet.jpg';
 
 import './styles.css';
-import { Link } from 'react-router-dom';
 
 const initialState = {
   email: '',
@@ -53,7 +54,7 @@ function Login() {
         </div>
         <div className="box-input-area">
           <img src={logo} alt="logo" id="img-logo" />
-          <InputArea inputs={inputs} passwordInputs={passwordInputs} context={AuthContext}>
+          <InputArea inputs={inputs} passwordInputs={passwordInputs} context={AuthContext} onClick={login}>
             <Link to="/register">
               <p id="register-link">Não tenho cadastro ainda!</p>
             </Link>
