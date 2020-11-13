@@ -11,7 +11,9 @@ function Header() {
     <header>
       <nav>
         <div>
-          <img src={logo} alt="adopte.me" />
+          <Link to="/">
+            <img src={logo} alt="adopte.me" />
+          </Link>
         </div>
         <div className="menu">
           <div>

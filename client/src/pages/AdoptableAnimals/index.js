@@ -61,7 +61,7 @@ function AdoptableAnimals() {
           </form>
         </aside>
 
-        <main>
+        <main id="animal-list">
           {animals.map((animal) => (
             <ListItem key={animal.id} pet={animal} />
           ))}

@@ -8,7 +8,7 @@ input {
   outline: none;
 }
 
-svg {
+.input-area svg {
   fill: var(--color-purple);
 }
 

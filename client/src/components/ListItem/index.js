@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { FaBirthdayCake, FaClinicMedical, FaInfoCircle, FaVenusMars, FaTag } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 
+import { baseURL } from '../../services/api';
+
 import './styles.css';
 
 function ListItem({ pet }) {
@@ -15,7 +17,7 @@ function ListItem({ pet }) {
 
   return (
     <div className="card" onClick={handleClick}>
-      <img src={`http://localhost:3333/files/${pet.photo_name}`} alt="tobby" />
+      <img src={`${baseURL}/files/${pet.photo_name}`} alt="tobby" />
       <div className="card-details">
         <h2>{pet.name}</h2>
         <div id="age" className="item">
