@@ -38,7 +38,8 @@ body {
 body,
 input,
 button,
-textarea {
+textarea, 
+label {
   font: 400 1.6rem 'Roboto', sans-serif;
   color: var(--color-text);
 }

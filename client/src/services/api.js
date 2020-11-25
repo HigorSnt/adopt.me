@@ -16,7 +16,7 @@ export const registerOng = async (ong) => {
 };
 
 export const login = async (credentials) => {
-  await api.post('/login', credentials)
+  return await api.post('/login', credentials)
 }
 
 export default api;

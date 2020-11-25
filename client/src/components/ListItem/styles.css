@@ -42,3 +42,21 @@
 .card-details span {
   margin: 0 0.8rem;
 }
+
+@media (max-width: 950px) {
+  .card {
+    flex-direction: column;
+    margin: 0;
+    min-width: 0;
+    width: 450px;
+    font-size: 17px;
+  }
+
+  .card img {
+    width: 100%;
+  }
+
+  .card-details {
+    margin: 1rem 0 2rem 0;
+  }
+}

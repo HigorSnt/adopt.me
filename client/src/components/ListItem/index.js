@@ -8,7 +8,6 @@ import { baseURL } from '../../services/api';
 import './styles.css';
 
 function ListItem({ pet }) {
-
   const history = useHistory();
 
   function handleClick() {

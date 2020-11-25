@@ -1,4 +1,6 @@
 import React, { useEffect, useReducer, useState } from 'react';
+import { Drawer, makeStyles } from '@material-ui/core';
+import { FaFilter } from 'react-icons/fa';
 
 import Header from '../../components/Header';
 import ListItem from '../../components/ListItem';
@@ -18,10 +20,32 @@ const initialState = {
   ufSelected: '',
 };
 
+const useStyles = makeStyles({
+  box: {
+    width: '50%',
+  },
+});
+
 function AdoptableAnimals() {
   const [state, dispatch] = useReducer(filterReducer, initialState);
 
+  const [open, setOpen] = useState(false);
   const [animals, setAnimals] = useState([]);
+
+  const classes = useStyles();
+
+  const filterArea = (
+    <form className="filter-form">
+      <label htmlFor="animal">buscar por...</label>
+      <FilterArea id="animal" />
+
+      <label htmlFor="location">estado</label>
+      <UfSelect />
+
+      <label htmlFor="age">a busca será por animais com até {state.ageValue[0]} anos</label>
+      <AgeRange />
+    </form>
+  );
 
   useEffect(() => {
     getAnimals();
@@ -37,6 +61,10 @@ function AdoptableAnimals() {
     setAnimals(pets);
   }
 
+  function toggleOpen() {
+    setOpen(!open);
+  }
+
   // ! lembrar ao passar um array de options vazio deve-se mostrar todas as opções
   function search() {
     console.log(`ageValue: ${state.ageValue}`);
@@ -48,18 +76,21 @@ function AdoptableAnimals() {
     <AdoptableAnimalsContext.Provider value={{ state, dispatch }}>
       <Header />
       <div className="container">
-        <aside>
-          <form>
-            <label htmlFor="animal">buscar por...</label>
-            <FilterArea id="animal" />
-
-            <label htmlFor="location">estado</label>
-            <UfSelect />
-
-            <label htmlFor="age">a busca será por animais com até {state.ageValue[0]} anos</label>
-            <AgeRange />
-          </form>
+        <aside id="responsive-filter-area">
+          <button id="filter-button" onClick={toggleOpen}>
+            <FaFilter /> <span>Filtrar</span>
+          </button>
+          <Drawer
+            classes={{ root: classes.box }}
+            anchor="right"
+            open={open}
+            onClose={toggleOpen}
+            containerStyle={{ width: '100%' }}
+          >
+            {filterArea}
+          </Drawer>
         </aside>
+        <aside id="filter-area">{filterArea}</aside>
 
         <main id="animal-list">
           {animals.map((animal) => (

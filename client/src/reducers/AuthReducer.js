@@ -14,6 +14,13 @@ export const authReducer = (state, action) => {
         password: action.payload,
       };
 
+    case Actions.SET_LOGGED_USER:
+      return {
+        ...state,
+        ong: action.payload.ong,
+        token: action.payload.token
+      };
+
     default:
       return state;
   }

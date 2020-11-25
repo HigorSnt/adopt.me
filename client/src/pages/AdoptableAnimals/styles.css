@@ -20,3 +20,47 @@ form label {
 #age {
   margin-top: 0.8rem;
 }
+
+#filter-button {
+  width: 15rem;
+  margin: 0;
+
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+}
+
+#filter-button span {
+  font-size: 1.8rem;
+}
+
+#responsive-filter-area {
+  display: none;
+}
+
+@media (max-width: 1130px) {
+  #responsive-filter-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 10rem;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  #filter-area {
+    display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  #animal-list {
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+  }
+}

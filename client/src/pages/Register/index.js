@@ -107,7 +107,12 @@ function Register() {
         </div>
         <div className="box-input-area">
           <img src={logo} alt="logo" id="img-logo" />
-          <InputArea inputs={inputs} passwordInputs={passwordInputs} onClick={registerOng} />
+          <InputArea
+            inputs={inputs}
+            passwordInputs={passwordInputs}
+            onClick={registerOng}
+            buttonLabel="Cadastrar"
+          />
         </div>
       </div>
     </RegisterContext.Provider>

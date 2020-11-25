@@ -20,13 +20,14 @@ header nav div:last-child {
 
 header nav img {
   width: 12rem;
+  margin: 0 2rem;
 }
 
-.menu {
-  margin-left: 25rem;
+.menu-items {
+  margin-left: 15rem;
 }
 
-header ul {
+.menu-list-items {
   list-style-type: none;
   font-size: 1.8rem;
 
@@ -36,7 +37,7 @@ header ul {
   justify-content: space-around;
 }
 
-header ul li:first-child a {
+.menu-list-items li:first-child a {
   padding: 0.5rem 1.5rem;
   border: 2px solid var(--color-purple);
   border-radius: 10px;
@@ -49,11 +50,70 @@ header ul li:first-child a {
   justify-content: center;
 }
 
-header ul li:first-child a span {
+.menu-list-items li:first-child a span {
   margin-left: 0.3rem;
 }
 
-header ul li:first-child a:hover {
+.menu-list-items li:first-child a:hover {
   border: 2px solid var(--color-purple);
   color: var(--color-purple-hover);
+}
+
+.menu-list-items li:not(.doe-button){
+  margin-left: 30px;
+  text-align: center;
+}
+
+.responsive-menu {
+  display: none;
+}
+
+.menu-responsive-button {
+  box-shadow: none;
+  width: 10rem;
+}
+
+.MuiPaper-root {
+  background-color: var(--color-background) !important;
+  font-size: 1.6rem;
+}
+
+#perfil-button {
+  background-color: transparent;
+  box-shadow: none;
+  margin: 0;
+  height: 3rem;
+  width: 8rem;
+  font-size: 1.8rem;
+}
+
+@media (max-width: 1000px) {
+  .menu {
+    display: none;
+  }
+
+  .filter-form {
+    margin: 0 3rem;
+  }
+
+  .responsive-menu {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .MuiPaper-root {
+    width: 60%;
+  }
+
+  .menu-list-items {
+    flex-direction: column;
+  }
+
+  .menu-list-items li:not(.doe-button) {
+    margin-left: 0;
+  }
+
+  .menu-list-items li{
+    margin: 2rem 0;
+  }
 }
