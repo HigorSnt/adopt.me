@@ -45,7 +45,7 @@ module.exports = {
       .where(qb => {
         if (uf) qb.where('address', 'like', `%${uf}%`);
         if (specie) qb.where('specie_id', `${specie}`);
-        if (age) qb.where('age', '<=', age);
+        if (age > 0) qb.where('age', '<=', age);
       })
       .select(
         'pets.id',
