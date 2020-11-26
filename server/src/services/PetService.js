@@ -1,7 +1,7 @@
 const db = require('../database/connection');
 
 module.exports = {
-  async create({ filename }, body, ong_cnpj) {
+  async create(body, ong_cnpj) {
     const {
       name,
       description,
@@ -12,6 +12,7 @@ module.exports = {
       castrated,
       dewormed,
       specie: specie_id,
+      imageUrl: photo_name,
     } = body;
 
     const pet = {
@@ -20,7 +21,7 @@ module.exports = {
       breed,
       genre,
       age,
-      photo_name: filename,
+      photo_name,
       special_cares,
       castrated,
       dewormed,

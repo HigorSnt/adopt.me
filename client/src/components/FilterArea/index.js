@@ -3,7 +3,7 @@ import { FaTimes } from 'react-icons/fa';
 
 import * as Actions from '../../constants';
 import AdoptableAnimalsContext from '../../contexts/AdoptableAnimalsContext';
-import api from '../../services/api';
+import { getSpecies } from '../../services/api';
 
 import './styles.css';
 
@@ -13,8 +13,8 @@ function FilterArea() {
   const { optionsSelected: selected } = state;
 
   useEffect(() => {
-    api.get('species').then((response) => {
-      setOptions(response.data.sort(sortOptions));
+    getSpecies().then((response) => {
+      setOptions(response.sort(sortOptions));
     });
   }, []);
 

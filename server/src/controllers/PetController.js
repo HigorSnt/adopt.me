@@ -2,7 +2,7 @@ const PetService = require('../services/PetService');
 
 module.exports = {
   async create(req, res, next) {
-    let insertedPet = await PetService.create(req.file, req.body, req.cnpj);
+    let insertedPet = await PetService.create(req.body, req.cnpj);
 
     return res.status(201).json(insertedPet);
   },

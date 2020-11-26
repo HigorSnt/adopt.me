@@ -16,7 +16,18 @@ export const registerOng = async (ong) => {
 };
 
 export const login = async (credentials) => {
-  return await api.post('/login', credentials)
-}
+  let response = await api.post('/login', credentials);
+  return response.data;
+};
+
+export const getSpecies = async () => {
+  let response = await api.get('/species');
+  return response.data;
+};
+
+export const createPet = async (pet) => {
+  let { token } = localStorage.getItem('loggedUser');
+  await api.get('/pets', pet, { headers: { Authorization: `Bearer ${token}` } });
+};
 
 export default api;

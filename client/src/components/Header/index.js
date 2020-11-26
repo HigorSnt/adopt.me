@@ -1,10 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { SwipeableDrawer, IconButton, Menu, Button, Fade, MenuItem } from '@material-ui/core';
 import { FaBars } from 'react-icons/fa';
-
-import AuthContext from '../../contexts/AuthContext';
 
 import logo from '../../assets/images/adopte.me.svg';
 
@@ -15,7 +13,9 @@ function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
-  const { state } = useContext(AuthContext);
+  const history = useHistory();
+
+  const state = JSON.parse(localStorage.getItem('loggedUser'));
 
   function toggleOpenDrawer() {
     setOpenDrawer(!openDrawer);
@@ -27,6 +27,11 @@ function Header() {
 
   function handleClose() {
     setAnchorEl(null);
+  }
+
+  function logout() {
+    localStorage.removeItem('loggedUser');
+    history.push('/');
   }
 
   return (
@@ -49,12 +54,12 @@ function Header() {
               <li>
                 <Link to="/">animais para adoção</Link>
               </li>
-              {!state.ong && (
+              {!state && (
                 <li>
                   <Link to="/login">login</Link>
                 </li>
               )}
-              {state.ong && (
+              {state && (
                 <li>
                   <button id="perfil-button" onClick={handleClick}>
                     olá, {state.ong.name.toLowerCase()}
@@ -71,10 +76,10 @@ function Header() {
                       <Link to="/">ver perfil</Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <Link to="/">cadastrar pet</Link>
+                      <Link to="/new-pet">cadastrar pet</Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
-                      <Link to="/">sair</Link>
+                      <Link to="/" onClick={logout}>sair</Link>
                     </MenuItem>
                   </Menu>
                 </li>
@@ -109,23 +114,28 @@ function Header() {
                 <FaHeart /> <span>doe</span>
               </Link>
             </li>
-            {state.ong && <li style={{ color: 'white' }}>olá, {state.ong.name.toLowerCase()}</li>}
+            {state && <li style={{ color: 'white' }}>olá, {state.ong.name.toLowerCase()}</li>}
             <li>
               <Link to="/">animais para adoção</Link>
             </li>
-            {!state.ong && (
+            {!state && (
               <li>
                 <Link to="/login">login</Link>
               </li>
             )}
-            {state.ong && (
+            {state && (
               <li>
-                <Link to="/">cadastrar pet</Link>
+                <Link to="/new-pet">cadastrar pet</Link>
               </li>
             )}
-            {state.ong && (
+            {state && (
               <li>
                 <Link to="/">ver perfil</Link>
+              </li>
+            )}
+            {state && (
+              <li>
+                <Link to="/" onClick={logout}>sair</Link>
               </li>
             )}
           </ul>

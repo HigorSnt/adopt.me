@@ -1,0 +1,60 @@
+.new-pet-form {
+  width: 60%;
+  margin: 4rem auto;
+}
+
+fieldset {
+  padding: 2rem;
+  border-color: var(--color-purple);
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+  background-color: #3d3d3d;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.div-input {
+  width: 80%;
+  margin: 1rem 0;
+}
+
+.input-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-flex-column input {
+  border-bottom: 1px solid black;
+}
+
+.div-input textarea {
+  background-color: var(--color-background-opacity);
+  padding: 0.5rem;
+  height: 3.5rem;
+  color: var(--color-purple);
+  border: none;
+  margin-bottom: 0.8rem;
+  outline: none;
+  border-bottom: 1px solid black;
+  resize: none;
+  height: auto;
+  overflow: auto;
+  line-height: 24px;
+}
+
+.div-input select {
+  height: 4rem;
+  line-height: 4rem;
+  margin-top: 1rem;
+  background-color: var(--color-background-opacity);
+}
+
+.input-flex-column .invalid {
+  color: rgb(255, 0, 0)
+}
+
+.label-margin {
+  margin-bottom: 1rem;
+}
