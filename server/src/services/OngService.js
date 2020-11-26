@@ -1,6 +1,5 @@
 const authUtils = require('../utils/auth');
 const db = require('../database/connection');
-const { index } = require('../controllers/PetController');
 
 module.exports = {
   async create(ong) {

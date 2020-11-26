@@ -12,7 +12,7 @@ module.exports = {
       castrated,
       dewormed,
       specie: specie_id,
-      imageUrl: photo_name,
+      imageUrl: image_url,
     } = body;
 
     const pet = {
@@ -21,7 +21,7 @@ module.exports = {
       breed,
       genre,
       age,
-      photo_name,
+      image_url,
       special_cares,
       castrated,
       dewormed,
@@ -54,7 +54,7 @@ module.exports = {
         'pets.breed',
         'pets.genre',
         'pets.age',
-        'pets.photo_name',
+        'pets.image_url',
         'pets.special_cares',
         'pets.castrated',
         'pets.dewormed',
@@ -74,7 +74,7 @@ module.exports = {
         breed: pet.breed,
         genre: pet.genre,
         age: pet.age,
-        photo_name: pet.photo_name,
+        imageUrl: pet.image_url,
         special_cares: Boolean(pet.special_cares),
         castrated: Boolean(pet.castrated),
         dewormed: Boolean(pet.dewormed),

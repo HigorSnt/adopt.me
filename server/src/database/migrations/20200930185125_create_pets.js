@@ -6,7 +6,7 @@ exports.up = function (knex) {
     table.string('breed');
     table.integer('genre').defaultTo(false);
     table.float('age', 2, 1).notNullable();
-    table.string('photo_name').notNullable();
+    table.string('image_url').notNullable();
     table.boolean('special_cares').defaultTo(false);
     table.boolean('castrated').defaultTo(false);
     table.boolean('dewormed').defaultTo(false);
