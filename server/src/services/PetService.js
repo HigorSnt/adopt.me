@@ -29,9 +29,9 @@ module.exports = {
       ong_cnpj,
     };
 
-    let [id] = await db('pets').insert(pet);
+    await db('pets').insert(pet);
 
-    return { id, ...pet };
+    return { ...pet };
   },
 
   async show({ id }) {
