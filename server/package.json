@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon node ./bin/www",
-    "start": "node src/index.js",
+    "start": "node src/app.js",
     "migrate": "knex migrate:latest"
   },
   "dependencies": {
