@@ -4,7 +4,7 @@ exports.up = function (knex) {
     table.string('name').notNullable();
     table.string('description').notNullable();
     table.string('breed');
-    table.integer('genre').defaultTo(false);
+    table.integer('genre').notNullable();
     table.float('age', 2, 1).notNullable();
     table.string('image_url').notNullable();
     table.boolean('special_cares').defaultTo(false);
