@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { FaBirthdayCake, FaClinicMedical, FaInfoCircle, FaVenusMars, FaTag } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
 
-import { baseURL } from '../../services/api';
-
 import './styles.css';
 
 function ListItem({ pet }) {
@@ -16,7 +14,7 @@ function ListItem({ pet }) {
 
   return (
     <div className="card" onClick={handleClick}>
-      <img src={`${baseURL}/files/${pet.photo_name}`} alt="tobby" />
+      <img src={pet.imageUrl} alt="tobby" />
       <div className="card-details">
         <h2>{pet.name}</h2>
         <div id="age" className="item">
@@ -24,7 +22,7 @@ function ListItem({ pet }) {
           <span>
             {pet.age < 1
               ? `${Math.floor(pet.age * 12)} meses`
-              : pet.age === 1
+              : Math.floor(pet.age) === 1
               ? `${Math.floor(pet.age)} ano`
               : `${Math.floor(pet.age)} anos`}
           </span>
@@ -68,7 +66,7 @@ ListItem.propTypes = {
     breed: PropTypes.string,
     genre: PropTypes.number.isRequired,
     age: PropTypes.number.isRequired,
-    photo_name: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
     special_cares: PropTypes.bool.isRequired,
     castrated: PropTypes.bool,
     dewormed: PropTypes.bool,

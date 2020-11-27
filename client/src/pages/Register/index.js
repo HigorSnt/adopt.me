@@ -1,10 +1,10 @@
 import React, { useReducer } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import * as Actions from '../../constants';
 import InputArea from '../../components/InputArea';
 import RegisterContext from '../../contexts/RegisterContext';
 import { registerReducer } from '../../reducers/RegisterReducer';
-
 import { registerOng } from '../../services/api';
 
 import logo from '../../assets/images/adopte.me.svg';
@@ -25,6 +25,8 @@ const initialState = {
 
 function Register() {
   const [state, dispatch] = useReducer(registerReducer, initialState);
+
+  const history = useHistory();
 
   const inputs = [
     {
@@ -94,6 +96,11 @@ function Register() {
     },
   ];
 
+  async function saveOng() {
+    await registerOng(state);
+    history.push('/login');
+  }
+
   return (
     <RegisterContext.Provider value={{ state, dispatch }}>
       <div className="box">
@@ -110,7 +117,7 @@ function Register() {
           <InputArea
             inputs={inputs}
             passwordInputs={passwordInputs}
-            onClick={registerOng}
+            onClick={saveOng}
             buttonLabel="Cadastrar"
           />
         </div>

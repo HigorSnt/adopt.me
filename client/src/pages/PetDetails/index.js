@@ -15,7 +15,6 @@ import {
   FaPhone,
 } from 'react-icons/fa';
 
-import { baseURL } from '../../services/api';
 import Header from '../../components/Header';
 
 import './styles.css';
@@ -23,14 +22,14 @@ import './styles.css';
 function PetDetails() {
   const location = useLocation();
   const { pet } = location.state;
-  console.log(pet);
+
   return (
     <>
       <Header />
       <main id="pet-detail-area">
         <div className="animal-info">
           <div className="animal-info-img">
-            <img src={`${baseURL}/files/${pet.photo_name}`} alt={pet.name} />
+            <img src={pet.imageUrl} alt={pet.name} />
           </div>
           <div className="animal-desc">
             <h2>{pet.name}</h2>
@@ -110,14 +109,28 @@ function PetDetails() {
           </div>
         </div>
         <div className="contact-area">
-          {pet.ong.whatsapp && <a target="_blank" id="whatsapp-button" href={`https://wa.me/+55${pet.ong.whatsapp}`} type="button">
-            <FaWhatsapp size="2.5rem" /> <span>Mandar mensagem</span>
-          </a>}
+          {pet.ong.whatsapp && (
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              id="whatsapp-button"
+              href={`https://wa.me/+55${pet.ong.whatsapp}`}
+              type="button"
+            >
+              <FaWhatsapp size="2.5rem" /> <span>Mandar mensagem</span>
+            </a>
+          )}
 
-          <a target="_blank" id="phone-button" href={`tel:${pet.ong.phone}`} type="button">
+          <a
+            target="_blank"
+            id="phone-button"
+            rel="noopener noreferrer"
+            href={`tel:${pet.ong.phone}`}
+            type="button"
+          >
             <FaPhone size="2rem" /> <span>Falar conosco</span>
           </a>
-          
+
           <span>ou se preferir faça-nos uma visita!</span>
         </div>
       </main>

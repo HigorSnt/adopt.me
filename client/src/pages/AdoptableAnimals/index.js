@@ -9,8 +9,9 @@ import UfSelect from '../../components/UfSelect';
 import AgeRange from '../../components/AgeRange';
 
 import { filterReducer } from '../../reducers/FilterReducer';
-import { getPets } from '../../services/api';
+import { getPets, filterPets } from '../../services/api';
 import AdoptableAnimalsContext from '../../contexts/AdoptableAnimalsContext';
+import * as Actions from '../../constants';
 
 import './styles.css';
 
@@ -22,7 +23,7 @@ const initialState = {
 
 const useStyles = makeStyles({
   box: {
-    width: '50%',
+    width: '50% !important',
   },
 });
 
@@ -44,6 +45,7 @@ function AdoptableAnimals() {
 
       <label htmlFor="age">a busca será por animais com até {state.ageValue[0]} anos</label>
       <AgeRange />
+      <button onClick={reset}>Limpar filtros</button>
     </form>
   );
 
@@ -56,6 +58,10 @@ function AdoptableAnimals() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
+  function reset() {
+    dispatch({ type: Actions.CHANGE_UF_SELECTED, payload: initialState });
+  }
+
   async function getAnimals() {
     let pets = await getPets();
     setAnimals(pets);
@@ -66,10 +72,9 @@ function AdoptableAnimals() {
   }
 
   // ! lembrar ao passar um array de options vazio deve-se mostrar todas as opções
-  function search() {
-    console.log(`ageValue: ${state.ageValue}`);
-    console.log(`optionsSelected: ${state.optionsSelected.map((opt) => opt.specie)}`);
-    console.log(`ufSelected: ${state.ufSelected}`);
+  async function search() {
+    let pets = await filterPets(state);
+    setAnimals(pets);
   }
 
   return (
@@ -81,11 +86,13 @@ function AdoptableAnimals() {
             <FaFilter /> <span>Filtrar</span>
           </button>
           <Drawer
-            classes={{ root: classes.box }}
+            classes={{ modal: classes.box }}
             anchor="right"
             open={open}
             onClose={toggleOpen}
-            containerStyle={{ width: '100%' }}
+            SlideProps={{
+              unmountOnExit: true,
+            }}
           >
             {filterArea}
           </Drawer>

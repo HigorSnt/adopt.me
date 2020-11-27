@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const baseURL = 'http://localhost:3333';
+const baseURL = 'https://adoptemeapi.herokuapp.com/';
 
 const api = axios.create({
   baseURL,
@@ -8,6 +8,15 @@ const api = axios.create({
 
 export const getPets = async () => {
   let response = await api.get('/pets');
+  return response.data;
+};
+
+export const filterPets = async (params) => {
+  let species = params.optionsSelected.map(o => o.id).join(',');
+
+  let response = await api.get(`/pets`, {
+    params: { uf: params.ufSelected, age: params.ageValue[0], specie: species },
+  });
   return response.data;
 };
 
@@ -26,8 +35,6 @@ export const getSpecies = async () => {
 };
 
 export const createPet = async (pet) => {
-  let { token } = localStorage.getItem('loggedUser');
-  await api.get('/pets', pet, { headers: { Authorization: `Bearer ${token}` } });
+  let { token } = JSON.parse(localStorage.getItem('loggedUser'));
+  await api.post('/pets', pet, { headers: { Authorization: `Bearer ${token}` } });
 };
-
-export default api;

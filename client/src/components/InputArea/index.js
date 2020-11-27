@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PasswordInput from '../PasswordInput';
 
@@ -20,5 +21,14 @@ function InputArea({ inputs, passwordInputs, context, children, onClick, buttonL
     </>
   );
 }
+
+InputArea.propTypes = {
+  inputs: PropTypes.array,
+  passwordInputs: PropTypes.array,
+  context: PropTypes.any,
+  children: PropTypes.node,
+  onClick: PropTypes.func,
+  buttonLabel: PropTypes.string,
+};
 
 export default InputArea;

@@ -4,14 +4,17 @@ import MuiAlert from '@material-ui/lab/Alert';
 import { DropzoneArea } from 'material-ui-dropzone';
 import { FaUpload } from 'react-icons/fa';
 import { useHistory } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
+import { storage } from '../../firebase/firebase';
 import { getSpecies, createPet } from '../../services/api';
 import CustomRange from '../../components/AgeRange/CustomRange';
-import { firebaseUpload } from '../../utils/firebaseUpload';
+import ProgressBar from '../../components/ProgressBar/index';
 
 import './styles.css';
 
-const useStyles = makeStyles((_) => ({
+const useStyles = makeStyles(() => ({
   DropzoneArea: {
     backgroundColor: 'rgba(147, 112, 219, 0.8)',
     outline: 'none',
@@ -48,6 +51,8 @@ function RegisterAdoptableAnimal() {
   const [castrated, setCastrated] = useState('');
   const [dewormed, setDewormed] = useState('');
 
+  const [loading, setLoading] = useState(false);
+  const [percentage, setPercentage] = useState(0);
   const [valid, setValid] = useState(true);
 
   const history = useHistory();
@@ -60,6 +65,7 @@ function RegisterAdoptableAnimal() {
     } else {
       history.push('/');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function sortOptions(a, b) {
@@ -95,36 +101,52 @@ function RegisterAdoptableAnimal() {
     if (files.length === 0) {
       setOpenSnackbar(true);
     } else if (
-      [
-        name,
-        description,
-        specialCares,
-        specieSelected,
-        breed,
-        genre,
-        castrated,
-        dewormed,
-      ].includes('') ||
+      [name, description, specialCares, specieSelected, genre, castrated, dewormed].includes(
+        '',
+      ) ||
       age[0] === 0
     ) {
       setValid(false);
     } else {
-      let imageUrl = await firebaseUpload(files[0]);
-      const pet = {
-        name,
-        description,
-        specialCares,
-        specieSelected,
-        breed,
-        genre,
-        castrated,
-        dewormed,
-        imageUrl,
-      };
-
-      await createPet(pet);
-      history.push('/');
+      setLoading(true);
+      firebaseUpload(files[0]);
     }
+  }
+
+  async function save(imageUrl) {
+    const pet = {
+      name,
+      description,
+      specialCares,
+      specie: specieSelected,
+      breed,
+      genre,
+      castrated,
+      dewormed,
+      imageUrl,
+      age: age[0],
+    };
+    await createPet(pet);
+    setLoading(false);
+    history.push('/');
+  }
+
+  async function firebaseUpload(file) {
+    let newFilename = `${file.name}-${Date.now()}`;
+    let uploadTask = storage.ref(`images/${newFilename}`).put(file);
+
+    uploadTask.on(
+      'state_changed',
+      (snapshot) => {
+        let percentage = Math.floor(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setPercentage(percentage);
+      },
+      (error) => {
+        alert(error.code);
+      }, async () => {
+        let url = await storage.ref(`images/${newFilename}`).getDownloadURL();
+        save(url);
+      });
   }
 
   return (
@@ -360,9 +382,18 @@ function RegisterAdoptableAnimal() {
             </RadioGroup>
           </div>
 
-          <button type="submit" onClick={() => {}}>
-            Cadastrar
+          <button
+            disabled={loading}
+            type="submit"
+            style={
+              loading ? { backgroundColor: 'gray', marginBottom: '1rem' } : { marginBottom: '1rem' }
+            }
+            onClick={() => {}}
+          >
+            {!loading && 'Cadastrar'}
+            {loading && <Loader type="TailSpin" color="#00BFFF" height={30} width={30} />}
           </button>
+          {loading && <ProgressBar completed={percentage} bgcolor="var(--color-purple-hover)" />}
         </fieldset>
       </form>
       <Snackbar

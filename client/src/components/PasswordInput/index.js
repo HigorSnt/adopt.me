@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 import RegisterContext from '../../contexts/RegisterContext';
 
@@ -30,5 +31,11 @@ function PasswordInput({ param, action, context, ...props }) {
     </div>
   );
 }
+
+PasswordInput.propTypes = {
+  param: PropTypes.string.isRequired,
+  action: PropTypes.string.isRequired,
+  context: PropTypes.any,
+};
 
 export default PasswordInput;

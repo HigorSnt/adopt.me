@@ -32,6 +32,13 @@ Os usuários acessarão o site e poderão filtrar por espécie e localidade, al�
 
 ## 🛠 Utilização
 
+> :warning: já existem ONGs cadastradas:
+> | Email                           | Senha  |
+> |---------------------------------|--------|
+> | adotacampina@gmail.com          | 123456 |
+> | onganjos@gmail.com              | 123456 |
+> | ongsoscidadaniaanimal@gmail.com | 123456 |
+
 - ### **Pré-requisitos**
 
   - É **necessário** possuir o **[Node.js](https://nodejs.org/en/)** instalado no computador

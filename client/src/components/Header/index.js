@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import { Link, useHistory } from 'react-router-dom';
-import { SwipeableDrawer, IconButton, Menu, Button, Fade, MenuItem } from '@material-ui/core';
+import { SwipeableDrawer, IconButton, Menu, Fade, MenuItem, makeStyles } from '@material-ui/core';
 import { FaBars } from 'react-icons/fa';
 
 import logo from '../../assets/images/adopte.me.svg';
 
 import './styles.css';
+
+const useStyles = makeStyles({
+  FontSize: {
+    fontSize: '1.6rem',
+  },
+  Width: {
+    width: '20rem',
+  }
+});
 
 function Header() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -14,6 +23,7 @@ function Header() {
   const open = Boolean(anchorEl);
 
   const history = useHistory();
+  const classes = useStyles();
 
   const state = JSON.parse(localStorage.getItem('loggedUser'));
 
@@ -71,15 +81,15 @@ function Header() {
                     open={open}
                     onClose={handleClose}
                     TransitionComponent={Fade}
+                    classes={{ paper: classes.Width }}
                   >
-                    <MenuItem onClick={handleClose}>
-                      <Link to="/">ver perfil</Link>
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>
+                    <MenuItem classes={{ root: classes.FontSize }} onClick={handleClose}>
                       <Link to="/new-pet">cadastrar pet</Link>
                     </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <Link to="/" onClick={logout}>sair</Link>
+                    <MenuItem classes={{ root: classes.FontSize }} onMouseDown={logout} onClick={handleClose}>
+                      <Link to="/">
+                        sair
+                      </Link>
                     </MenuItem>
                   </Menu>
                 </li>
@@ -130,12 +140,9 @@ function Header() {
             )}
             {state && (
               <li>
-                <Link to="/">ver perfil</Link>
-              </li>
-            )}
-            {state && (
-              <li>
-                <Link to="/" onClick={logout}>sair</Link>
+                <Link to="/" onClick={logout}>
+                  sair
+                </Link>
               </li>
             )}
           </ul>

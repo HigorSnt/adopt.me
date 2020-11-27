@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Range, getTrackBackground } from 'react-range';
 
 import * as Actions from '../../constants';
 import AdoptableAnimalsContext from '../../contexts/AdoptableAnimalsContext';

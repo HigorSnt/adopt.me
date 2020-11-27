@@ -14,9 +14,19 @@ function FilterArea() {
 
   useEffect(() => {
     getSpecies().then((response) => {
-      setOptions(response.sort(sortOptions));
+      setOptions(response.filter(notInclude).sort(sortOptions));
     });
   }, []);
+
+  function notInclude(specie) {
+    for (const i of selected) {
+      if (i.id === specie.id) {
+        return false;
+      }
+    }
+
+    return true;
+  }
 
   function sortOptions(a, b) {
     return a.specie > b.specie ? 1 : -1;
