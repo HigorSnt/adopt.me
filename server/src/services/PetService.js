@@ -44,7 +44,12 @@ module.exports = {
       .join('ongs', 'pets.ong_cnpj', '=', 'ongs.cnpj')
       .where(qb => {
         if (uf) qb.where('address', 'like', `%${uf}%`);
-        if (specie) qb.where('specie_id', `${specie}`);
+        if (specie)
+          qb.where(
+            'specie_id',
+            'in',
+            specie.split(',').map(i => Number(i))
+          );
         if (age > 0) qb.where('age', '<=', age);
       })
       .select(
