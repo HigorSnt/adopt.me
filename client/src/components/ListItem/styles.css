@@ -56,7 +56,25 @@
     width: 100%;
   }
 
-  .card-details {
-    margin: 1rem 0 2rem 0;
+  .card h2 {
+    margin-bottom: 1rem;
+  }
+
+  .card .card-details {
+    margin: 1rem 0.8rem 2rem 0.8rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .card {
+    width: 85%;
+  }
+
+  .card h2 {
+    font-size: 1.5rem;
+  }
+
+  .card span {
+    font-size: 1.3rem;
   }
 }

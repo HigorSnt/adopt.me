@@ -23,7 +23,7 @@ function Login() {
 
   const inputs = [
     {
-      type: 'text',
+      type: 'email',
       name: 'email',
       id: 'email',
       placeholder: 'Digite o e-mail utilizado no cadastro',
