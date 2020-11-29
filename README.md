@@ -30,6 +30,10 @@ Os usuários acessarão o site e poderão filtrar por espécie e localidade, al�
 > :warning: Se deseja conhecer todas as rotas disponíveis [clique aqui](./server/README.md)  
 > :warning: Se deseja conhecer todas as telas construídas para este projeto [clique aqui](./client/README.md)
 
+## 🎬 Apresentação do Projeto
+
+[!["adopt.me"](http://img.youtube.com/vi/aYUfGtRNVrU/0.jpg)](http://www.youtube.com/watch?v=aYUfGtRNVrU "adopt.me")
+
 ## 🛠 Utilização
 
 > :warning: já existem ONGs cadastradas:
