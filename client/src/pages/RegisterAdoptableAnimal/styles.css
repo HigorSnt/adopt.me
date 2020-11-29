@@ -58,3 +58,22 @@ fieldset {
 .label-margin {
   margin-bottom: 1rem;
 }
+
+fieldset legend {
+  font-size: 2rem;
+}
+
+@media (max-width: 600px) {
+  fieldset {
+    padding: 0;
+  }
+
+  fieldset legend {
+    padding: 1rem;
+    font-size: 1.6rem;
+  }
+
+  .new-pet-form {
+    width: 80%;
+  }
+}

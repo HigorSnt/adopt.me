@@ -153,7 +153,7 @@ function RegisterAdoptableAnimal() {
     <>
       <form className="new-pet-form" onSubmit={savePet}>
         <fieldset style={{ width: '100%' }}>
-          <legend style={{ fontSize: '2rem' }}>Vamos cadastrar um novo pet para adoção?</legend>
+          <legend>Vamos cadastrar um novo pet para adoção?</legend>
           <div className="div-input">
             <DropzoneArea
               dropzoneClass={classes.DropzoneArea}
