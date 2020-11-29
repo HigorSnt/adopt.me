@@ -12,6 +12,7 @@
 </p>
 <p align="center">
   <a href="#bookmark-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-apresentação-do-projeto">Apresentação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-utilização">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="./server/README.md">Documentação da API</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="./client/README.md">Detalhes do Front-end</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -31,6 +32,10 @@ Os usuários acessarão o site e poderão filtrar por espécie e localidade, al�
 > :warning: Se deseja conhecer todas as telas construídas para este projeto [clique aqui](./client/README.md)
 
 ## 🎬 Apresentação do Projeto
+
+O backend e frontend foram implantados e estão disponíveis nas seguintes URLs:
+* Backend: https://adoptemeapi.herokuapp.com/
+* Frontend: https://adoptme-project.netlify.app/
 
 [!["adopt.me"](http://img.youtube.com/vi/aYUfGtRNVrU/0.jpg)](http://www.youtube.com/watch?v=aYUfGtRNVrU "adopt.me")
 
