@@ -42,11 +42,11 @@ O backend e frontend foram implantados e estão disponíveis nas seguintes URLs:
 ## 🛠 Utilização
 
 > :warning: já existem ONGs cadastradas:
-> | Email                           | Senha  |
-> |---------------------------------|--------|
-> | adotacampina@gmail.com          | 123456 |
-> | onganjos@gmail.com              | 123456 |
-> | ongsoscidadaniaanimal@gmail.com | 123456 |
+> | Email                           | Senha  |   Estado   |
+> |---------------------------------|--------|------------|
+> | adotacampina@gmail.com          | 123456 |  Paraíba   |
+> | onganjos@gmail.com              | 123456 |  Sergipe   |
+> | ongsoscidadaniaanimal@gmail.com | 123456 |  São Paulo |
 
 - ### **Pré-requisitos**
 
