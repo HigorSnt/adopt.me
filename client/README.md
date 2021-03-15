@@ -1,7 +1,6 @@
 # 🐾 Front-end do adopte.me
 
 O sistema possui 5 telas:
-> em breve: prints das telas
 
 1. Tela de listagem e filtragem de todos os animais adotáveis
   ![Listagem](.github/tela-listagem.png)
